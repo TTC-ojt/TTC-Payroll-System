@@ -1,0 +1,304 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{74394D1B-90A2-43DC-B24A-B37929B0CD8E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TTC_Payroll_System</RootNamespace>
+    <AssemblyName>TTC Payroll System</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>TTC_Payroll_System.Program</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\MySQL\Connector.NET 6.9\Assemblies\v4.0\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\Allowance.cs" />
+    <Compile Include="Classes\Connection.cs" />
+    <Compile Include="Classes\Department.cs" />
+    <Compile Include="Classes\Employee.cs" />
+    <Compile Include="Classes\Late.cs" />
+    <Compile Include="Classes\Leave.cs" />
+    <Compile Include="Classes\FixedDeductions.cs" />
+    <Compile Include="Classes\PagibigLoans.cs" />
+    <Compile Include="Classes\PayrollSummary1.cs" />
+    <Compile Include="Classes\PayrollSummary2.cs" />
+    <Compile Include="Classes\PhilHealth.cs" />
+    <Compile Include="Classes\Position.cs" />
+    <Compile Include="Classes\SocialObligation.cs" />
+    <Compile Include="Classes\Sss.cs" />
+    <Compile Include="Classes\Sss_Loan.cs" />
+    <Compile Include="Classes\WithholdingTax.cs" />
+    <Compile Include="Forms\Allowances.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Allowances.Designer.cs">
+      <DependentUpon>Allowances.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Leaves.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Leaves.Designer.cs">
+      <DependentUpon>Leaves.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PagibigLoan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PagibigLoan.Designer.cs">
+      <DependentUpon>PagibigLoan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PayrollSummaryPartTime2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PayrollSummaryPartTime2.Designer.cs">
+      <DependentUpon>PayrollSummaryPartTime2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PayrollSummaryPartTime1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PayrollSummaryPartTime1.Designer.cs">
+      <DependentUpon>PayrollSummaryPartTime1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PayrollSummaryTeachers1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PayrollSummaryTeachers1.Designer.cs">
+      <DependentUpon>PayrollSummaryTeachers1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PayrollSummaryTeachers2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PayrollSummaryTeachers2.designer.cs">
+      <DependentUpon>PayrollSummaryTeachers2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Print\Payslip1st.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Print\Payslip1st.Designer.cs">
+      <DependentUpon>Payslip1st.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Print\Payslip2nd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Print\Payslip2nd.Designer.cs">
+      <DependentUpon>Payslip2nd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SocialObligation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SocialObligation.Designer.cs">
+      <DependentUpon>SocialObligation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SssLoans.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SssLoans.Designer.cs">
+      <DependentUpon>SssLoans.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Pagibig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Pagibig.Designer.cs">
+      <DependentUpon>Pagibig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Departments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Departments.Designer.cs">
+      <DependentUpon>Departments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Employees.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Employees.Designer.cs">
+      <DependentUpon>Employees.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PayrollSummary1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PayrollSummary1.Designer.cs">
+      <DependentUpon>PayrollSummary1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PayrollSummary2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PayrollSummary2.Designer.cs">
+      <DependentUpon>PayrollSummary2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PhilHealth.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PhilHealth.Designer.cs">
+      <DependentUpon>PhilHealth.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Positions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Positions.Designer.cs">
+      <DependentUpon>Positions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Sss.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Sss.Designer.cs">
+      <DependentUpon>Sss.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UTD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UTD.designer.cs">
+      <DependentUpon>UTD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Withholdingtax.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Withholdingtax.Designer.cs">
+      <DependentUpon>Withholdingtax.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main.designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\Allowances.resx">
+      <DependentUpon>Allowances.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Leaves.resx">
+      <DependentUpon>Leaves.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PagibigLoan.resx">
+      <DependentUpon>PagibigLoan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PayrollSummaryPartTime2.resx">
+      <DependentUpon>PayrollSummaryPartTime2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PayrollSummaryPartTime1.resx">
+      <DependentUpon>PayrollSummaryPartTime1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PayrollSummaryTeachers1.resx">
+      <DependentUpon>PayrollSummaryTeachers1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PayrollSummaryTeachers2.resx">
+      <DependentUpon>PayrollSummaryTeachers2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Print\Payslip1st.resx">
+      <DependentUpon>Payslip1st.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Print\Payslip2nd.resx">
+      <DependentUpon>Payslip2nd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SocialObligation.resx">
+      <DependentUpon>SocialObligation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SssLoans.resx">
+      <DependentUpon>SssLoans.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Pagibig.resx">
+      <DependentUpon>Pagibig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Departments.resx">
+      <DependentUpon>Departments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Employees.resx">
+      <DependentUpon>Employees.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PayrollSummary1.resx">
+      <DependentUpon>PayrollSummary1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PayrollSummary2.resx">
+      <DependentUpon>PayrollSummary2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PhilHealth.resx">
+      <DependentUpon>PhilHealth.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Positions.resx">
+      <DependentUpon>Positions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Sss.resx">
+      <DependentUpon>Sss.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UTD.resx">
+      <DependentUpon>UTD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Withholdingtax.resx">
+      <DependentUpon>Withholdingtax.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
