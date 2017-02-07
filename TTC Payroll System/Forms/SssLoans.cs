@@ -35,8 +35,7 @@ namespace TTC_Payroll_System.Forms
             foreach (Classes.Sss_Loan loan in loans)
             {
                 employee = Classes.Employee.getById(loan.employee_id);
-                string name = employee.firstname + " " + employee.lastname + " " + employee.extname;
-                dgvSssLoan.Rows.Add(loan.id, name, loan.amount, loan.months_to_pay, loan.months_paid);
+                dgvSssLoan.Rows.Add(loan.id, employee.GetFullName(), loan.amount, loan.months_to_pay, loan.months_paid, loan.fortnightly);
             }
             dgvSssLoan.ClearSelection();
         }
@@ -55,8 +54,7 @@ namespace TTC_Payroll_System.Forms
         private void cbxEmployeeCode_SelectedIndexChanged(object sender, EventArgs e)
         {
             employee = Classes.Employee.getByCode(cbxEmployeeCode.SelectedItem.ToString());
-            string name = employee.firstname + " " + employee.lastname + " " + employee.extname;
-            txtEmployeeName.Text = name;
+            txtEmployeeName.Text = employee.GetFullName();
             showData();
         }
 
@@ -73,6 +71,7 @@ namespace TTC_Payroll_System.Forms
             loan.amount = nudAmount.Value;
             loan.months_to_pay = Convert.ToInt32(nudMonthToPay.Value);
             loan.months_paid = Convert.ToInt32(nudMonthsPaid.Value);
+            loan.fortnightly = chkFortNightly.Checked;
             loan.Save();
             showData();
             nudMonthToPay.Value = 0;

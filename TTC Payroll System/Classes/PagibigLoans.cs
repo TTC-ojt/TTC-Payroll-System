@@ -15,6 +15,7 @@ namespace TTC_Payroll_System.Classes
         public decimal calamity { get; set; }
         public int months_to_pay { get; set;}
         public int months_paid { get; set; }
+        public bool fortnightly { get; set; }
 
         public static List<PagibigLoans> getAll()
         {
@@ -39,6 +40,7 @@ namespace TTC_Payroll_System.Classes
                             loan.calamity = rdr.GetDecimal(3);
                             loan.months_to_pay = rdr.GetInt32(4);
                             loan.months_paid = rdr.GetInt32(5);
+                            loan.fortnightly = rdr.GetBoolean(6);
                             loans.Add(loan);
                         }
                     }
@@ -76,6 +78,7 @@ namespace TTC_Payroll_System.Classes
                             loan.calamity = rdr.GetDecimal(3);
                             loan.months_to_pay = rdr.GetInt32(4);
                             loan.months_paid = rdr.GetInt32(5);
+                            loan.fortnightly = rdr.GetBoolean(6);
                             loans.Add(loan);
                         }
                     }
@@ -111,6 +114,7 @@ namespace TTC_Payroll_System.Classes
                             loan.calamity = rdr.GetDecimal(3);
                             loan.months_to_pay = rdr.GetInt32(4);
                             loan.months_paid = rdr.GetInt32(5);
+                            loan.fortnightly = rdr.GetBoolean(6);
                         }
                     }
                 }
@@ -131,11 +135,20 @@ namespace TTC_Payroll_System.Classes
                 {
                     MySqlCommand cmd = new MySqlCommand();
                     cmd.Connection = con;
-                    cmd.CommandText = "INSERT INTO pagibig_loans (employee_id,regular, calamity, months_to_pay) VALUES (@employee_id, @regular, @calamity, @months_to_pay)";
-                    cmd.Parameters.AddWithValue("employee_id", employee_id);
+                    if (id > 0)
+                    {
+                        cmd.CommandText = "UPDATE pagibig_loans SET regular = @regular, calamity = @calamity, months_to_pay = @months_to_pay, months_paid = @months_paid, fortnightly = @fortnightly";
+                    }
+                    else
+                    {
+                        cmd.CommandText = "INSERT INTO pagibig_loans (employee_id,regular, calamity, months_to_pay, months_paid, fortnightly) VALUES (@employee_id, @regular, @calamity, @months_to_pay, @months_paid, @fortnightly)";
+                        cmd.Parameters.AddWithValue("employee_id", employee_id);
+                    }
                     cmd.Parameters.AddWithValue("regular", regular);
                     cmd.Parameters.AddWithValue("calamity", calamity);
                     cmd.Parameters.AddWithValue("months_to_pay", months_to_pay);
+                    cmd.Parameters.AddWithValue("months_paid", months_paid);
+                    cmd.Parameters.AddWithValue("fortnightly", fortnightly);
                     con.Open();
                     cmd.ExecuteNonQuery();
                 }

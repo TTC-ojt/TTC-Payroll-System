@@ -25,6 +25,7 @@ namespace TTC_Payroll_System.Forms
 
         private void showData()
         {
+            decimal total = 0m;
             sos = Classes.SocialObligation.getByDate(date);
             if (sos.Count == 0)
             {
@@ -61,8 +62,10 @@ namespace TTC_Payroll_System.Forms
                 decimal total_sss = so.sss_employee + so.sss_employer + so.sss_ec;
                 decimal total_ph = so.ph_employee + so.ph_employer;
                 decimal total_pi = so.pi_employee + so.pi_employer;
+                total += total_sss + total_ph + total_pi;
                 dgvSocialObligation.Rows.Add(so.id, employee.GetFullName(), position.name, so.sss_employee, so.sss_employer, so.sss_ec, total_sss, so.ph_employee, so.ph_employer, total_ph, so.pi_employee, so.pi_employer, total_pi);
             }
+            dgvSocialObligation.Rows.Add(0, "", "", "", "", "", "", "", "", "", "", "", total.ToString("N"));
             dgvSocialObligation.ClearSelection();
         }
 

@@ -70,6 +70,12 @@
     <Compile Include="Classes\Sss.cs" />
     <Compile Include="Classes\Sss_Loan.cs" />
     <Compile Include="Classes\WithholdingTax.cs" />
+    <Compile Include="Forms\ConnectionSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ConnectionSettings.Designer.cs">
+      <DependentUpon>ConnectionSettings.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Allowances.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -206,6 +212,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\Allowances.resx">
       <DependentUpon>Allowances.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ConnectionSettings.resx">
+      <DependentUpon>ConnectionSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Leaves.resx">
       <DependentUpon>Leaves.cs</DependentUpon>

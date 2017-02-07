@@ -375,6 +375,7 @@
             this.colEmployeeName.HeaderText = "EMPLOYEE";
             this.colEmployeeName.Name = "colEmployeeName";
             this.colEmployeeName.ReadOnly = true;
+            this.colEmployeeName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // colPosition
             // 
@@ -383,6 +384,7 @@
             this.colPosition.HeaderText = "POSITION";
             this.colPosition.Name = "colPosition";
             this.colPosition.ReadOnly = true;
+            this.colPosition.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // dgcMonthlyRate
             // 
@@ -390,6 +392,8 @@
             this.dgcMonthlyRate.FillWeight = 7F;
             this.dgcMonthlyRate.HeaderText = "MONTHLY RATE";
             this.dgcMonthlyRate.Name = "dgcMonthlyRate";
+            this.dgcMonthlyRate.ReadOnly = true;
+            this.dgcMonthlyRate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // dgcHalfRate
             // 
@@ -397,6 +401,8 @@
             this.dgcHalfRate.FillWeight = 7F;
             this.dgcHalfRate.HeaderText = "HALF MONTH";
             this.dgcHalfRate.Name = "dgcHalfRate";
+            this.dgcHalfRate.ReadOnly = true;
+            this.dgcHalfRate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // dgcSssLoan
             // 
@@ -404,6 +410,7 @@
             this.dgcSssLoan.FillWeight = 7F;
             this.dgcSssLoan.HeaderText = "SSS LOAN";
             this.dgcSssLoan.Name = "dgcSssLoan";
+            this.dgcSssLoan.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // dgcPagibigRegular
             // 
@@ -411,6 +418,7 @@
             this.dgcPagibigRegular.FillWeight = 7F;
             this.dgcPagibigRegular.HeaderText = "REGULAR";
             this.dgcPagibigRegular.Name = "dgcPagibigRegular";
+            this.dgcPagibigRegular.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // dgcPagibigCalamity
             // 
@@ -418,6 +426,7 @@
             this.dgcPagibigCalamity.FillWeight = 7F;
             this.dgcPagibigCalamity.HeaderText = "CALAMITY";
             this.dgcPagibigCalamity.Name = "dgcPagibigCalamity";
+            this.dgcPagibigCalamity.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // dgcLeaves
             // 
@@ -425,6 +434,7 @@
             this.dgcLeaves.FillWeight = 7F;
             this.dgcLeaves.HeaderText = "LEAVES W/O PAY";
             this.dgcLeaves.Name = "dgcLeaves";
+            this.dgcLeaves.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // dgcWithTax
             // 
@@ -432,6 +442,7 @@
             this.dgcWithTax.FillWeight = 9F;
             this.dgcWithTax.HeaderText = "WITHHOLDING TAX";
             this.dgcWithTax.Name = "dgcWithTax";
+            this.dgcWithTax.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // dgcNetPay
             // 
@@ -439,6 +450,8 @@
             this.dgcNetPay.FillWeight = 7F;
             this.dgcNetPay.HeaderText = "NETPAY";
             this.dgcNetPay.Name = "dgcNetPay";
+            this.dgcNetPay.ReadOnly = true;
+            this.dgcNetPay.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // PayrollSummary1
             // 

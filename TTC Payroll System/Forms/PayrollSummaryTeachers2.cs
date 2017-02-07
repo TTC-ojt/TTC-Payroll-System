@@ -30,6 +30,9 @@ namespace TTC_Payroll_System.Forms
             decimal total_sss = 0m;
             decimal total_philhealth = 0m;
             decimal total_pagibig = 0m;
+            decimal total_sssloan = 0m;
+            decimal total_pagibigregular = 0m;
+            decimal total_pagibigcalamity = 0m;
             decimal total_leave = 0m;
             decimal total_withtax = 0m;
             decimal total_netpay = 0m;
@@ -37,6 +40,9 @@ namespace TTC_Payroll_System.Forms
             decimal sub_sss = 0m;
             decimal sub_philhealth = 0m;
             decimal sub_pagibig = 0m;
+            decimal sub_sssloan = 0m;
+            decimal sub_pagibigregular = 0m;
+            decimal sub_pagibigcalamity = 0m;
             decimal sub_leave = 0m;
             decimal sub_withtax = 0m;
             decimal sub_netpay = 0m;
@@ -69,6 +75,13 @@ namespace TTC_Payroll_System.Forms
                         break;
                     }
                 }
+                decimal sss_loan = 0m;
+                Classes.Sss_Loan sloan = Classes.Sss_Loan.getLoanByEmployeeId(ps2.EmployeeID);
+                if (sloan.fortnightly) sss_loan = sloan.amount / 2;
+                decimal pagibig_regular = 0m;
+                decimal pagibig_calamity = 0m;
+                Classes.PagibigLoans ploan = Classes.PagibigLoans.getEmployeeID(ps2.EmployeeID);
+                if (ploan.fortnightly) { pagibig_regular = ploan.regular / 2; pagibig_calamity = ploan.calamity / 2; }
                 List<Classes.Leave> leaves = Classes.Leave.getLeavesByEmployeeIDAndDate(employee.id, date.Year + "-" + date.Month + "-16", date.Year + "-" + date.Month + "-" + DateTime.DaysInMonth(date.Year, date.Month));
                 decimal leave_count = 0;
                 foreach (Classes.Leave leave in leaves)
@@ -93,6 +106,9 @@ namespace TTC_Payroll_System.Forms
                 total_sss += sssRate;
                 total_philhealth += philhealthRate;
                 total_pagibig += pagibig;
+                total_sssloan += sss_loan;
+                total_pagibigregular += pagibig_regular;
+                total_pagibigcalamity += pagibig_calamity;
                 total_leave += leave_deduction;
                 total_withtax += tax;
                 total_netpay += netpay;
@@ -100,13 +116,16 @@ namespace TTC_Payroll_System.Forms
                 {
                     if (deptID > 0)
                     {
-                        dgvPayroll2.Rows.Add(0, "", "SUBTOTAL", sub_monthlyrate.ToString("N"), (sub_monthlyrate / 2).ToString("N"), sub_sss.ToString("N"), sub_philhealth.ToString("N"), sub_pagibig.ToString("N"), sub_leave.ToString("N"), sub_withtax.ToString("N"), sub_netpay.ToString("N"));
+                        dgvPayroll2.Rows.Add(0, "", "SUBTOTAL", sub_monthlyrate.ToString("N"), (sub_monthlyrate / 2).ToString("N"), sub_sss.ToString("N"), sub_philhealth.ToString("N"), sub_pagibig.ToString("N"), sub_sssloan.ToString("N"), sub_pagibigregular.ToString("N"), sub_pagibigcalamity.ToString("N"), sub_leave.ToString("N"), sub_withtax.ToString("N"), sub_netpay.ToString("N"));
                         dgvPayroll2.Rows[dgvPayroll2.Rows.Count - 1].DefaultCellStyle.Font = new Font("Arial Rounded MT Bold", 8F);
                     }
                     sub_monthlyrate = 0m;
                     sub_sss = 0m;
                     sub_philhealth = 0m;
                     sub_pagibig = 0m;
+                    sub_sssloan = 0m;
+                    sub_pagibigregular = 0m;
+                    sub_pagibigcalamity = 0m;
                     sub_leave = 0m;
                     sub_withtax = 0m;
                     sub_netpay = 0m;
@@ -118,6 +137,9 @@ namespace TTC_Payroll_System.Forms
                 sub_sss += sssRate;
                 sub_philhealth += philhealthRate;
                 sub_pagibig += pagibig;
+                sub_sssloan += sss_loan;
+                sub_pagibigregular += pagibig_regular;
+                sub_pagibigcalamity += pagibig_calamity;
                 sub_leave += leave_deduction;
                 sub_withtax += tax;
                 sub_netpay += netpay;
@@ -129,7 +151,7 @@ namespace TTC_Payroll_System.Forms
                 ps2.Leave = leave_deduction;
                 ps2.Tax = tax;
                 ps2.Save();
-                dgvPayroll2.Rows.Add(ps2.ID, employee.GetFullName(), position.name, position.salary.ToString("N"), halfrate.ToString("N"), sssRate.ToString("N"), philhealthRate.ToString("N"), pagibig.ToString("N"), leave_deduction.ToString("N"), tax.ToString("N"), netpay.ToString("N"));
+                dgvPayroll2.Rows.Add(ps2.ID, employee.GetFullName(), position.name, position.salary.ToString("N"), halfrate.ToString("N"), sssRate.ToString("N"), philhealthRate.ToString("N"), pagibig.ToString("N"), sss_loan.ToString("N"), pagibig_regular.ToString("N"), pagibig_calamity.ToString("N"), leave_deduction.ToString("N"), tax.ToString("N"), netpay.ToString("N"));
                 dgvPayroll2.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                 dgvPayroll2.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                 dgvPayroll2.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
@@ -138,10 +160,13 @@ namespace TTC_Payroll_System.Forms
                 dgvPayroll2.Columns[8].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                 dgvPayroll2.Columns[9].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                 dgvPayroll2.Columns[10].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                dgvPayroll2.Columns[11].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                dgvPayroll2.Columns[12].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                dgvPayroll2.Columns[13].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             }
-            dgvPayroll2.Rows.Add(0, "", "SUBTOTAL", sub_monthlyrate.ToString("N"), (sub_monthlyrate / 2).ToString("N"), sub_sss.ToString("N"), sub_philhealth.ToString("N"), sub_pagibig.ToString("N"), sub_leave.ToString("N"), sub_withtax.ToString("N"), sub_netpay.ToString("N"));
+            dgvPayroll2.Rows.Add(0, "", "SUBTOTAL", sub_monthlyrate.ToString("N"), (sub_monthlyrate / 2).ToString("N"), sub_sss.ToString("N"), sub_philhealth.ToString("N"), sub_pagibig.ToString("N"), sub_sssloan.ToString("N"), sub_pagibigregular.ToString("N"), sub_pagibigcalamity.ToString("N"), sub_leave.ToString("N"), sub_withtax.ToString("N"), sub_netpay.ToString("N"));
             dgvPayroll2.Rows[dgvPayroll2.Rows.Count - 1].DefaultCellStyle.Font = new Font("Arial Rounded MT Bold", 8F);
-            dgvPayroll2.Rows.Add(0, "GRAND TOTAL FOR HUMAN RESOURCES", "", total_monthlyrate.ToString("N"), (total_monthlyrate / 2).ToString("N"), total_sss.ToString("N"), total_philhealth.ToString("N"), total_pagibig.ToString("N"), total_leave.ToString("N"), total_withtax.ToString("N"), total_netpay.ToString("N"));
+            dgvPayroll2.Rows.Add(0, "GRAND TOTAL", "", total_monthlyrate.ToString("N"), (total_monthlyrate / 2).ToString("N"), total_sss.ToString("N"), total_philhealth.ToString("N"), total_pagibig.ToString("N"), total_sssloan.ToString("N"), total_pagibigregular.ToString("N"), total_pagibigcalamity.ToString("N"), total_leave.ToString("N"), total_withtax.ToString("N"), total_netpay.ToString("N"));
             dgvPayroll2.Rows[dgvPayroll2.Rows.Count - 1].DefaultCellStyle.Font = new Font("Arial Rounded MT Bold", 8F);
             dgvPayroll2.ClearSelection();
         }
@@ -281,5 +306,53 @@ namespace TTC_Payroll_System.Forms
             printPreviewDialog.ShowDialog();
         }
 
+        private void dgvPayroll2_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            int id = Convert.ToInt32(dgvPayroll2.Rows[e.RowIndex].Cells[0].Value);
+            if (id > 0)
+            {
+                Classes.PayrollSummary2 ps2 = ps2s.Find(p => p.ID == id);
+
+                string column = dgvPayroll2[e.ColumnIndex, e.RowIndex].OwningColumn.Name;
+
+                decimal sss = Convert.ToDecimal(dgvPayroll2.Rows[e.RowIndex].Cells["dgcSSS"].Value);
+                decimal philhealth = Convert.ToDecimal(dgvPayroll2.Rows[e.RowIndex].Cells["dgcPhilHealth"].Value);
+                decimal pagibig = Convert.ToDecimal(dgvPayroll2.Rows[e.RowIndex].Cells["dgcPagibig"].Value);
+                decimal leaves = Convert.ToDecimal(dgvPayroll2.Rows[e.RowIndex].Cells["dgcLeaves"].Value);
+                decimal withtax = Convert.ToDecimal(dgvPayroll2.Rows[e.RowIndex].Cells["dgcWithTax"].Value);
+
+                if (column == dgcSSS.Name)
+                {
+                    sss = Convert.ToDecimal(dgvPayroll2.Rows[e.RowIndex].Cells["dgcSSS"].Value);
+                }
+                if (column == dgcPhilHealth.Name)
+                {
+                    philhealth = Convert.ToDecimal(dgvPayroll2.Rows[e.RowIndex].Cells["dgcPhilHealth"].Value);
+                }
+                if (column == dgcPagibig.Name)
+                {
+                    pagibig = Convert.ToDecimal(dgvPayroll2.Rows[e.RowIndex].Cells["dgcPagibig"].Value);
+                }
+                if (column == dgcLeaves.Name)
+                {
+                    leaves = Convert.ToDecimal(dgvPayroll2.Rows[e.RowIndex].Cells["dgcLeaves"].Value);
+                }
+                if (column == dgcWithTax.Name)
+                {
+                    withtax = Convert.ToDecimal(dgvPayroll2.Rows[e.RowIndex].Cells["dgcWithTax"].Value);
+                }
+
+                decimal deductions = sss + philhealth + pagibig + leaves + withtax;
+
+                decimal netpay = ps2.MonthlyRate / 2 - deductions;
+                dgvPayroll2.Rows[e.RowIndex].Cells["dgcNetPay"].Value = netpay;
+
+                ps2.SSS = sss;
+                ps2.PhilHealth = philhealth;
+                ps2.PagIbig = pagibig;
+                ps2.Leave = leaves;
+                ps2.Tax = withtax;
+            }
+        }
     }
 }

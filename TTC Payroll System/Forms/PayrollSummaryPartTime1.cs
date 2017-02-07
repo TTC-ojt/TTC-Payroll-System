@@ -204,5 +204,30 @@ namespace TTC_Payroll_System.Forms
             Program.main.Show();
         }
 
+        private void dgvPayroll1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            int id = Convert.ToInt32(dgvPayroll1.Rows[e.RowIndex].Cells[0].Value);
+
+            if (id > 0)
+            {
+                Classes.PayrollSummary1 ps1 = payroll.Find(p => p.ID == id);
+
+                string column = dgvPayroll1[e.ColumnIndex, e.RowIndex].OwningColumn.Name;
+
+                decimal withtax = Convert.ToDecimal(dgvPayroll1.Rows[e.RowIndex].Cells["dgcWithTax"].Value);
+
+                if (column == dgcWithTax.Name)
+                {
+                    withtax = Convert.ToDecimal(dgvPayroll1.Rows[e.RowIndex].Cells["dgcWithTax"].Value);
+                }
+
+                decimal deductions = withtax;
+
+                decimal netpay = ps1.MonthlyRate / 2 - deductions;
+                dgvPayroll1.Rows[e.RowIndex].Cells["dgcNetPay"].Value = netpay;
+
+                ps1.Tax = withtax;
+            }
+        }
     }
 }

@@ -57,8 +57,8 @@
             this.colPosition = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colMonthlyRate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colHalfMonth = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colWithTax = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNetPay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcWithTax = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcNetPay = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.pnlPrint.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -232,8 +232,8 @@
             this.colPosition,
             this.colMonthlyRate,
             this.colHalfMonth,
-            this.colWithTax,
-            this.colNetPay});
+            this.dgcWithTax,
+            this.dgcNetPay});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -250,6 +250,7 @@
             this.dgvPayroll1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPayroll1.Size = new System.Drawing.Size(990, 357);
             this.dgvPayroll1.TabIndex = 2;
+            this.dgvPayroll1.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPayroll1_CellEndEdit);
             // 
             // pnlPrint2
             // 
@@ -366,6 +367,7 @@
             this.colEmployeeName.HeaderText = "EMPLOYEE";
             this.colEmployeeName.Name = "colEmployeeName";
             this.colEmployeeName.ReadOnly = true;
+            this.colEmployeeName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // colPosition
             // 
@@ -374,6 +376,7 @@
             this.colPosition.HeaderText = "POSITION";
             this.colPosition.Name = "colPosition";
             this.colPosition.ReadOnly = true;
+            this.colPosition.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // colMonthlyRate
             // 
@@ -381,6 +384,8 @@
             this.colMonthlyRate.FillWeight = 10F;
             this.colMonthlyRate.HeaderText = "MONTHLY RATE";
             this.colMonthlyRate.Name = "colMonthlyRate";
+            this.colMonthlyRate.ReadOnly = true;
+            this.colMonthlyRate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // colHalfMonth
             // 
@@ -388,20 +393,25 @@
             this.colHalfMonth.FillWeight = 10F;
             this.colHalfMonth.HeaderText = "HALF MONTH";
             this.colHalfMonth.Name = "colHalfMonth";
+            this.colHalfMonth.ReadOnly = true;
+            this.colHalfMonth.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // colWithTax
+            // dgcWithTax
             // 
-            this.colWithTax.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colWithTax.FillWeight = 10F;
-            this.colWithTax.HeaderText = "WITHHOLDING TAX";
-            this.colWithTax.Name = "colWithTax";
+            this.dgcWithTax.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dgcWithTax.FillWeight = 10F;
+            this.dgcWithTax.HeaderText = "WITHHOLDING TAX";
+            this.dgcWithTax.Name = "dgcWithTax";
+            this.dgcWithTax.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // colNetPay
+            // dgcNetPay
             // 
-            this.colNetPay.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colNetPay.FillWeight = 10F;
-            this.colNetPay.HeaderText = "NETPAY";
-            this.colNetPay.Name = "colNetPay";
+            this.dgcNetPay.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dgcNetPay.FillWeight = 10F;
+            this.dgcNetPay.HeaderText = "NETPAY";
+            this.dgcNetPay.Name = "dgcNetPay";
+            this.dgcNetPay.ReadOnly = true;
+            this.dgcNetPay.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // PayrollSummaryPartTime1
             // 
@@ -456,7 +466,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colPosition;
         private System.Windows.Forms.DataGridViewTextBoxColumn colMonthlyRate;
         private System.Windows.Forms.DataGridViewTextBoxColumn colHalfMonth;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colWithTax;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colNetPay;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcWithTax;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcNetPay;
     }
 }

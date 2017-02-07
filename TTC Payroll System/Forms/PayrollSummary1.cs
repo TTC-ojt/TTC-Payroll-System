@@ -59,13 +59,19 @@ namespace TTC_Payroll_System.Forms
             {
                 Classes.Employee employee = Classes.Employee.getById(ps1.EmployeeID);
                 department = Classes.Department.getById(employee.department_id);
-                if (department.id == 4) continue;
+                if (department.id == 4 || department.id == 5) continue;
                 Classes.Position position = Classes.Position.getById(employee.position_id);
                 decimal halfrate = position.salary / 2;
                 decimal tax = Classes.WithholdingTax.getByEmployeeId(ps1.EmployeeID).tax15;
-                decimal sss_loan = Classes.Sss_Loan.getLoanByEmployeeId(ps1.EmployeeID).amount;
-                decimal pagibig_regular = Classes.PagibigLoans.getEmployeeID(ps1.EmployeeID).regular;
-                decimal pagibig_calamity = Classes.PagibigLoans.getEmployeeID(ps1.EmployeeID).calamity;
+                decimal sss_loan = 0m;
+                Classes.Sss_Loan sloan = Classes.Sss_Loan.getLoanByEmployeeId(ps1.EmployeeID);
+                if (sloan.fortnightly) sss_loan = sloan.amount / 2;
+                else sss_loan = sloan.amount;
+                decimal pagibig_regular = 0m;
+                decimal pagibig_calamity = 0m;
+                Classes.PagibigLoans ploan = Classes.PagibigLoans.getEmployeeID(ps1.EmployeeID);
+                if (ploan.fortnightly) { pagibig_regular = ploan.regular / 2; pagibig_calamity = ploan.calamity / 2; }
+                else { pagibig_regular = ploan.regular; pagibig_calamity = ploan.calamity; }
                 List<Classes.Leave> leaves = Classes.Leave.getLeavesByEmployeeIDAndDate(employee.id, date.Year + "-" + date.Month + "-01", date.Year + "-" + date.Month + "-15");
                 decimal leave_count = 0;
                 foreach (Classes.Leave leave in leaves)
@@ -124,7 +130,6 @@ namespace TTC_Payroll_System.Forms
                 ps1.Calamity = pagibig_calamity;
                 ps1.Leave = leave_deduction;
                 ps1.Tax = tax;
-                ps1.Save();
                 dgvPayroll1.Rows.Add(ps1.ID, employee.GetFullName(), position.name, position.salary.ToString("N"), halfrate.ToString("N"), sss_loan.ToString("N"), pagibig_regular.ToString("N"), pagibig_calamity.ToString("N"), leave_deduction.ToString("N"), tax.ToString("N"), netpay.ToString("N"));
                 dgvPayroll1.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                 dgvPayroll1.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
@@ -259,42 +264,51 @@ namespace TTC_Payroll_System.Forms
 
         private void dgvPayroll1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            string column = dgvPayroll1[e.ColumnIndex, e.RowIndex].OwningColumn.Name;
-
-            decimal monthly_rate = Convert.ToDecimal(dgvPayroll1.Rows[e.RowIndex].Cells["dgcMonthlyRate"].Value);
-            decimal half_rate = Convert.ToDecimal(dgvPayroll1.Rows[e.RowIndex].Cells["dgcHalfRate"].Value);
-            decimal sss_loan = Convert.ToDecimal(dgvPayroll1.Rows[e.RowIndex].Cells["dgcSssLoan"].Value);
-            decimal pagibig_regular = Convert.ToDecimal(dgvPayroll1.Rows[e.RowIndex].Cells["dgcPagibigRegular"].Value);
-            decimal pagibig_calamity = Convert.ToDecimal(dgvPayroll1.Rows[e.RowIndex].Cells["dgcPagibigCalamity"].Value);
-            decimal leaves = Convert.ToDecimal(dgvPayroll1.Rows[e.RowIndex].Cells["dgcLeaves"].Value);
-            decimal withtax = Convert.ToDecimal(dgvPayroll1.Rows[e.RowIndex].Cells["dgcWithTax"].Value);
-            decimal net_pay = Convert.ToDecimal(dgvPayroll1.Rows[e.RowIndex].Cells["dgcNetPay"].Value);
-
-            decimal deductions = sss_loan + pagibig_regular + pagibig_calamity + leaves + withtax;
-
-            if (column == dgcMonthlyRate.Name)
-            {
-                half_rate = monthly_rate / 2;
-                net_pay = half_rate - deductions;
-            }
-            if (column == dgcHalfRate.Name)
-            {
-
-            }
-
             int id = Convert.ToInt32(dgvPayroll1.Rows[e.RowIndex].Cells[0].Value);
 
             if (id > 0)
             {
                 Classes.PayrollSummary1 ps1 = payroll.Find(p => p.ID == id);
-                ps1.MonthlyRate = monthly_rate;
+
+                string column = dgvPayroll1[e.ColumnIndex, e.RowIndex].OwningColumn.Name;
+
+                decimal sss_loan = Convert.ToDecimal(dgvPayroll1.Rows[e.RowIndex].Cells["dgcSssLoan"].Value);
+                decimal pagibig_regular = Convert.ToDecimal(dgvPayroll1.Rows[e.RowIndex].Cells["dgcPagibigRegular"].Value);
+                decimal pagibig_calamity = Convert.ToDecimal(dgvPayroll1.Rows[e.RowIndex].Cells["dgcPagibigCalamity"].Value);
+                decimal leaves = Convert.ToDecimal(dgvPayroll1.Rows[e.RowIndex].Cells["dgcLeaves"].Value);
+                decimal withtax = Convert.ToDecimal(dgvPayroll1.Rows[e.RowIndex].Cells["dgcWithTax"].Value);
+
+                if (column == dgcSssLoan.Name)
+                {
+                    sss_loan = Convert.ToDecimal(dgvPayroll1.Rows[e.RowIndex].Cells["dgcSssLoan"].Value);
+                }
+                if (column == dgcPagibigRegular.Name)
+                {
+                    pagibig_regular = Convert.ToDecimal(dgvPayroll1.Rows[e.RowIndex].Cells["dgcPagibigRegular"].Value);
+                }
+                if (column == dgcPagibigCalamity.Name)
+                {
+                    pagibig_calamity = Convert.ToDecimal(dgvPayroll1.Rows[e.RowIndex].Cells["dgcPagibigCalamity"].Value);
+                }
+                if (column == dgcLeaves.Name)
+                {
+                    leaves = Convert.ToDecimal(dgvPayroll1.Rows[e.RowIndex].Cells["dgcLeaves"].Value);
+                }
+                if (column == dgcWithTax.Name)
+                {
+                    withtax = Convert.ToDecimal(dgvPayroll1.Rows[e.RowIndex].Cells["dgcWithTax"].Value);
+                }
+
+                decimal deductions = sss_loan + pagibig_regular + pagibig_calamity + leaves + withtax;
+
+                decimal netpay = ps1.MonthlyRate / 2 - deductions;
+                dgvPayroll1.Rows[e.RowIndex].Cells["dgcNetPay"].Value = netpay;
+
                 ps1.SSS_Loan = sss_loan;
                 ps1.Regular = pagibig_regular;
                 ps1.Calamity = pagibig_calamity;
                 ps1.Leave = leaves;
                 ps1.Tax = withtax;
-                ps1.Save();
-                showData();
             }
         }
     }

@@ -12,11 +12,11 @@ namespace TTC_Payroll_System.Classes
         public static string Connect()
         {
             MySqlConnectionStringBuilder csb = new MySqlConnectionStringBuilder();
-            csb.Database = "ttc_payroll";
-            csb.UserID = "root";
-            csb.Password = "";
-            csb.Port = 3306;
-            csb.Server = "localhost";
+            csb.Server = Properties.Settings.Default.Server;
+            csb.Port = Properties.Settings.Default.Port;
+            csb.UserID = Properties.Settings.Default.UserID;
+            csb.Password = Properties.Settings.Default.Password;
+            csb.Database = Properties.Settings.Default.Database;
 
             return csb.ConnectionString;
            

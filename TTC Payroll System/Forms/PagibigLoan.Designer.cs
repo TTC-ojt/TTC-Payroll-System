@@ -46,28 +46,36 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvPagibigLoans = new System.Windows.Forms.DataGridView();
+            this.label5 = new System.Windows.Forms.Label();
+            this.nudCalamity = new System.Windows.Forms.NumericUpDown();
+            this.printDocument = new System.Drawing.Printing.PrintDocument();
+            this.printPreviewDialog = new System.Windows.Forms.PrintPreviewDialog();
+            this.chkFortNightly = new System.Windows.Forms.CheckBox();
             this.loadId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.employeeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.regular = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.calamity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label5 = new System.Windows.Forms.Label();
-            this.nudCalamity = new System.Windows.Forms.NumericUpDown();
-            this.printDocument = new System.Drawing.Printing.PrintDocument();
-            this.printPreviewDialog = new System.Windows.Forms.PrintPreviewDialog();
+            this.Column3 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.label3 = new System.Windows.Forms.Label();
+            this.nudMonthsPaid = new System.Windows.Forms.NumericUpDown();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudMonthToPay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudRegular)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPagibigLoans)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCalamity)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudMonthsPaid)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel1.Controls.Add(this.chkFortNightly);
             this.panel1.Controls.Add(this.btnPrint);
+            this.panel1.Controls.Add(this.nudMonthsPaid);
             this.panel1.Controls.Add(this.nudMonthToPay);
+            this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.txtEmployeeName);
             this.panel1.Controls.Add(this.cbxEmployeeCode);
@@ -278,7 +286,8 @@
             this.regular,
             this.calamity,
             this.Column1,
-            this.Column2});
+            this.Column2,
+            this.Column3});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -297,6 +306,57 @@
             this.dgvPagibigLoans.TabIndex = 2;
             this.dgvPagibigLoans.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPagibigLoans_CellContentClick);
             this.dgvPagibigLoans.SelectionChanged += new System.EventHandler(this.dgvPagibigLoans_SelectionChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(133, 387);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(63, 16);
+            this.label5.TabIndex = 15;
+            this.label5.Text = "Calamity:";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            // 
+            // nudCalamity
+            // 
+            this.nudCalamity.DecimalPlaces = 2;
+            this.nudCalamity.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nudCalamity.Location = new System.Drawing.Point(135, 403);
+            this.nudCalamity.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.nudCalamity.Name = "nudCalamity";
+            this.nudCalamity.Size = new System.Drawing.Size(117, 25);
+            this.nudCalamity.TabIndex = 3;
+            // 
+            // printDocument
+            // 
+            this.printDocument.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument_PrintPage);
+            // 
+            // printPreviewDialog
+            // 
+            this.printPreviewDialog.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog.Document = this.printDocument;
+            this.printPreviewDialog.Enabled = true;
+            this.printPreviewDialog.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog.Icon")));
+            this.printPreviewDialog.Name = "printPreviewDialog";
+            this.printPreviewDialog.Visible = false;
+            // 
+            // chkFortNightly
+            // 
+            this.chkFortNightly.AutoSize = true;
+            this.chkFortNightly.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkFortNightly.Location = new System.Drawing.Point(463, 405);
+            this.chkFortNightly.Name = "chkFortNightly";
+            this.chkFortNightly.Size = new System.Drawing.Size(88, 20);
+            this.chkFortNightly.TabIndex = 34;
+            this.chkFortNightly.Text = "FortNightly";
+            this.chkFortNightly.UseVisualStyleBackColor = true;
             // 
             // loadId
             // 
@@ -341,45 +401,38 @@
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
             // 
-            // label5
+            // Column3
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(133, 387);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(63, 16);
-            this.label5.TabIndex = 15;
-            this.label5.Text = "Calamity:";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column3.FillWeight = 10F;
+            this.Column3.HeaderText = "FortNightly";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
             // 
-            // nudCalamity
+            // label3
             // 
-            this.nudCalamity.DecimalPlaces = 2;
-            this.nudCalamity.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nudCalamity.Location = new System.Drawing.Point(135, 403);
-            this.nudCalamity.Maximum = new decimal(new int[] {
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(354, 387);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(82, 16);
+            this.label3.TabIndex = 33;
+            this.label3.Text = "Months Paid:";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // nudMonthsPaid
+            // 
+            this.nudMonthsPaid.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nudMonthsPaid.Location = new System.Drawing.Point(357, 403);
+            this.nudMonthsPaid.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
+            this.nudMonthsPaid.Maximum = new decimal(new int[] {
             1000000,
             0,
             0,
             0});
-            this.nudCalamity.Name = "nudCalamity";
-            this.nudCalamity.Size = new System.Drawing.Size(117, 25);
-            this.nudCalamity.TabIndex = 3;
-            // 
-            // printDocument
-            // 
-            this.printDocument.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument_PrintPage);
-            // 
-            // printPreviewDialog
-            // 
-            this.printPreviewDialog.AutoScrollMargin = new System.Drawing.Size(0, 0);
-            this.printPreviewDialog.AutoScrollMinSize = new System.Drawing.Size(0, 0);
-            this.printPreviewDialog.ClientSize = new System.Drawing.Size(400, 300);
-            this.printPreviewDialog.Document = this.printDocument;
-            this.printPreviewDialog.Enabled = true;
-            this.printPreviewDialog.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog.Icon")));
-            this.printPreviewDialog.Name = "printPreviewDialog";
-            this.printPreviewDialog.Visible = false;
+            this.nudMonthsPaid.Name = "nudMonthsPaid";
+            this.nudMonthsPaid.Size = new System.Drawing.Size(76, 25);
+            this.nudMonthsPaid.TabIndex = 4;
             // 
             // PagibigLoan
             // 
@@ -400,6 +453,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudRegular)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPagibigLoans)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCalamity)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudMonthsPaid)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -422,14 +476,18 @@
         private System.Windows.Forms.NumericUpDown nudMonthToPay;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnPrint;
+        private System.Drawing.Printing.PrintDocument printDocument;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog;
+        private System.Windows.Forms.CheckBox chkFortNightly;
         private System.Windows.Forms.DataGridViewTextBoxColumn loadId;
         private System.Windows.Forms.DataGridViewTextBoxColumn employeeName;
         private System.Windows.Forms.DataGridViewTextBoxColumn regular;
         private System.Windows.Forms.DataGridViewTextBoxColumn calamity;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.Button btnPrint;
-        private System.Drawing.Printing.PrintDocument printDocument;
-        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Column3;
+        private System.Windows.Forms.NumericUpDown nudMonthsPaid;
+        private System.Windows.Forms.Label label3;
     }
 }

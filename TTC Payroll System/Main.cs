@@ -165,5 +165,11 @@ namespace TTC_Payroll_System
             ps1.Show();
             this.Hide();
         }
+
+        private void btnConnectionSettings_Click(object sender, EventArgs e)
+        {
+            Forms.ConnectionSettings cs = new Forms.ConnectionSettings();
+            cs.ShowDialog();
+        }
     }
 }

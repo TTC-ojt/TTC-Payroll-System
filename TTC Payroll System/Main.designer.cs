@@ -52,11 +52,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lblDateTime = new System.Windows.Forms.Label();
             this.btnTeachersPayroll1 = new System.Windows.Forms.Button();
+            this.btnPartTimePayroll2 = new System.Windows.Forms.Button();
             this.btnPartTimePayroll1 = new System.Windows.Forms.Button();
             this.btnTeachersPayroll2 = new System.Windows.Forms.Button();
             this.btnAllowance = new System.Windows.Forms.Button();
             this.tmrDateTime = new System.Windows.Forms.Timer(this.components);
-            this.btnPartTimePayroll2 = new System.Windows.Forms.Button();
+            this.btnConnectionSettings = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -308,6 +309,7 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.lblDateTime);
+            this.panel1.Controls.Add(this.btnConnectionSettings);
             this.panel1.Controls.Add(this.btnClose);
             this.panel1.Controls.Add(this.btnSocialObligations);
             this.panel1.Controls.Add(this.btnTeachersPayroll1);
@@ -414,6 +416,22 @@
             this.btnTeachersPayroll1.UseVisualStyleBackColor = false;
             this.btnTeachersPayroll1.Click += new System.EventHandler(this.btnTeachersPayroll1_Click);
             // 
+            // btnPartTimePayroll2
+            // 
+            this.btnPartTimePayroll2.BackColor = System.Drawing.Color.SkyBlue;
+            this.btnPartTimePayroll2.FlatAppearance.BorderColor = System.Drawing.Color.DarkBlue;
+            this.btnPartTimePayroll2.FlatAppearance.BorderSize = 2;
+            this.btnPartTimePayroll2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPartTimePayroll2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPartTimePayroll2.Location = new System.Drawing.Point(330, 253);
+            this.btnPartTimePayroll2.Name = "btnPartTimePayroll2";
+            this.btnPartTimePayroll2.Size = new System.Drawing.Size(206, 51);
+            this.btnPartTimePayroll2.TabIndex = 3;
+            this.btnPartTimePayroll2.Text = "PARTTIME PAYROLL (16-30)";
+            this.btnPartTimePayroll2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnPartTimePayroll2.UseVisualStyleBackColor = false;
+            this.btnPartTimePayroll2.Click += new System.EventHandler(this.btnPartTimePayroll2_Click);
+            // 
             // btnPartTimePayroll1
             // 
             this.btnPartTimePayroll1.BackColor = System.Drawing.Color.SkyBlue;
@@ -471,21 +489,20 @@
             this.tmrDateTime.Interval = 1000;
             this.tmrDateTime.Tick += new System.EventHandler(this.tmrDateTime_Tick);
             // 
-            // btnPartTimePayroll2
+            // btnConnectionSettings
             // 
-            this.btnPartTimePayroll2.BackColor = System.Drawing.Color.SkyBlue;
-            this.btnPartTimePayroll2.FlatAppearance.BorderColor = System.Drawing.Color.DarkBlue;
-            this.btnPartTimePayroll2.FlatAppearance.BorderSize = 2;
-            this.btnPartTimePayroll2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPartTimePayroll2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPartTimePayroll2.Location = new System.Drawing.Point(330, 253);
-            this.btnPartTimePayroll2.Name = "btnPartTimePayroll2";
-            this.btnPartTimePayroll2.Size = new System.Drawing.Size(206, 51);
-            this.btnPartTimePayroll2.TabIndex = 3;
-            this.btnPartTimePayroll2.Text = "PARTTIME PAYROLL (16-30)";
-            this.btnPartTimePayroll2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnPartTimePayroll2.UseVisualStyleBackColor = false;
-            this.btnPartTimePayroll2.Click += new System.EventHandler(this.btnPartTimePayroll2_Click);
+            this.btnConnectionSettings.AutoSize = true;
+            this.btnConnectionSettings.BackColor = System.Drawing.Color.Transparent;
+            this.btnConnectionSettings.FlatAppearance.BorderSize = 0;
+            this.btnConnectionSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConnectionSettings.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConnectionSettings.Image = ((System.Drawing.Image)(resources.GetObject("btnConnectionSettings.Image")));
+            this.btnConnectionSettings.Location = new System.Drawing.Point(635, 480);
+            this.btnConnectionSettings.Name = "btnConnectionSettings";
+            this.btnConnectionSettings.Size = new System.Drawing.Size(38, 38);
+            this.btnConnectionSettings.TabIndex = 16;
+            this.btnConnectionSettings.UseVisualStyleBackColor = false;
+            this.btnConnectionSettings.Click += new System.EventHandler(this.btnConnectionSettings_Click);
             // 
             // Main
             // 
@@ -537,6 +554,7 @@
         private System.Windows.Forms.Button btnPartTimePayroll1;
         private System.Windows.Forms.Button btnAllowance;
         private System.Windows.Forms.Button btnPartTimePayroll2;
+        private System.Windows.Forms.Button btnConnectionSettings;
     }
 }
 

@@ -57,12 +57,12 @@
             this.colPosition = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colMonthlyRate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colHalfMonth = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSSSloan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPagibigRegular = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colLeaves = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colWithTax = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNetPay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcSssLoan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcPagibigRegular = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcPagibigCalamity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcLeaves = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcWithTax = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcNetPay = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.pnlPrint.SuspendLayout();
             this.pnlPrint2.SuspendLayout();
@@ -268,12 +268,12 @@
             this.colPosition,
             this.colMonthlyRate,
             this.colHalfMonth,
-            this.colSSSloan,
-            this.colPagibigRegular,
-            this.Column1,
-            this.colLeaves,
-            this.colWithTax,
-            this.colNetPay});
+            this.dgcSssLoan,
+            this.dgcPagibigRegular,
+            this.dgcPagibigCalamity,
+            this.dgcLeaves,
+            this.dgcWithTax,
+            this.dgcNetPay});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -290,6 +290,7 @@
             this.dgvPayroll1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPayroll1.Size = new System.Drawing.Size(990, 273);
             this.dgvPayroll1.TabIndex = 2;
+            this.dgvPayroll1.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPayroll1_CellEndEdit);
             // 
             // btnClose
             // 
@@ -366,6 +367,7 @@
             this.colEmployeeName.HeaderText = "EMPLOYEE";
             this.colEmployeeName.Name = "colEmployeeName";
             this.colEmployeeName.ReadOnly = true;
+            this.colEmployeeName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // colPosition
             // 
@@ -374,6 +376,7 @@
             this.colPosition.HeaderText = "POSITION";
             this.colPosition.Name = "colPosition";
             this.colPosition.ReadOnly = true;
+            this.colPosition.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // colMonthlyRate
             // 
@@ -381,6 +384,8 @@
             this.colMonthlyRate.FillWeight = 7F;
             this.colMonthlyRate.HeaderText = "MONTHLY RATE";
             this.colMonthlyRate.Name = "colMonthlyRate";
+            this.colMonthlyRate.ReadOnly = true;
+            this.colMonthlyRate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // colHalfMonth
             // 
@@ -388,46 +393,55 @@
             this.colHalfMonth.FillWeight = 7F;
             this.colHalfMonth.HeaderText = "HALF MONTH";
             this.colHalfMonth.Name = "colHalfMonth";
+            this.colHalfMonth.ReadOnly = true;
+            this.colHalfMonth.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // colSSSloan
+            // dgcSssLoan
             // 
-            this.colSSSloan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colSSSloan.FillWeight = 7F;
-            this.colSSSloan.HeaderText = "SSS LOAN";
-            this.colSSSloan.Name = "colSSSloan";
+            this.dgcSssLoan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dgcSssLoan.FillWeight = 7F;
+            this.dgcSssLoan.HeaderText = "SSS LOAN";
+            this.dgcSssLoan.Name = "dgcSssLoan";
+            this.dgcSssLoan.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
-            // colPagibigRegular
+            // dgcPagibigRegular
             // 
-            this.colPagibigRegular.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colPagibigRegular.FillWeight = 7F;
-            this.colPagibigRegular.HeaderText = "REGULAR";
-            this.colPagibigRegular.Name = "colPagibigRegular";
+            this.dgcPagibigRegular.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dgcPagibigRegular.FillWeight = 7F;
+            this.dgcPagibigRegular.HeaderText = "REGULAR";
+            this.dgcPagibigRegular.Name = "dgcPagibigRegular";
+            this.dgcPagibigRegular.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // Column1
+            // dgcPagibigCalamity
             // 
-            this.Column1.HeaderText = "CALAMITY";
-            this.Column1.Name = "Column1";
+            this.dgcPagibigCalamity.HeaderText = "CALAMITY";
+            this.dgcPagibigCalamity.Name = "dgcPagibigCalamity";
+            this.dgcPagibigCalamity.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // colLeaves
+            // dgcLeaves
             // 
-            this.colLeaves.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colLeaves.FillWeight = 7F;
-            this.colLeaves.HeaderText = "LEAVES W/O PAY";
-            this.colLeaves.Name = "colLeaves";
+            this.dgcLeaves.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dgcLeaves.FillWeight = 7F;
+            this.dgcLeaves.HeaderText = "LEAVES W/O PAY";
+            this.dgcLeaves.Name = "dgcLeaves";
+            this.dgcLeaves.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // colWithTax
+            // dgcWithTax
             // 
-            this.colWithTax.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colWithTax.FillWeight = 9F;
-            this.colWithTax.HeaderText = "WITHHOLDING TAX";
-            this.colWithTax.Name = "colWithTax";
+            this.dgcWithTax.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dgcWithTax.FillWeight = 9F;
+            this.dgcWithTax.HeaderText = "WITHHOLDING TAX";
+            this.dgcWithTax.Name = "dgcWithTax";
+            this.dgcWithTax.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // colNetPay
+            // dgcNetPay
             // 
-            this.colNetPay.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colNetPay.FillWeight = 7F;
-            this.colNetPay.HeaderText = "NETPAY";
-            this.colNetPay.Name = "colNetPay";
+            this.dgcNetPay.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dgcNetPay.FillWeight = 7F;
+            this.dgcNetPay.HeaderText = "NETPAY";
+            this.dgcNetPay.Name = "dgcNetPay";
+            this.dgcNetPay.ReadOnly = true;
+            this.dgcNetPay.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // PayrollSummaryTeachers1
             // 
@@ -482,11 +496,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colPosition;
         private System.Windows.Forms.DataGridViewTextBoxColumn colMonthlyRate;
         private System.Windows.Forms.DataGridViewTextBoxColumn colHalfMonth;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colSSSloan;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPagibigRegular;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colLeaves;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colWithTax;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colNetPay;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcSssLoan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcPagibigRegular;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcPagibigCalamity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcLeaves;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcWithTax;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcNetPay;
     }
 }

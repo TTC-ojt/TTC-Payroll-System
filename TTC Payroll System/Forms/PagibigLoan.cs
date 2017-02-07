@@ -35,8 +35,7 @@ namespace TTC_Payroll_System.Forms
             foreach (Classes.PagibigLoans loan in loans)
             {
                 employee = Classes.Employee.getById(loan.employee_id);
-                string name = employee.firstname + " " + employee.lastname + " " + employee.extname;
-                dgvPagibigLoans.Rows.Add(loan.id, name, loan.regular, loan.calamity, loan.months_to_pay, loan.months_paid);
+                dgvPagibigLoans.Rows.Add(loan.id, employee.GetFullName(), loan.regular, loan.calamity, loan.months_to_pay, loan.months_paid, loan.fortnightly);
             }
             dgvPagibigLoans.ClearSelection();
         }
@@ -45,8 +44,7 @@ namespace TTC_Payroll_System.Forms
         private void cbxEmployeeCode_SelectedIndexChanged(object sender, EventArgs e)
         {
             employee = Classes.Employee.getByCode(cbxEmployeeCode.SelectedItem.ToString());
-            string name = employee.firstname + " " + employee.lastname + " " + employee.extname;
-            txtEmployeeName.Text = name;
+            txtEmployeeName.Text = employee.GetFullName();
             showData();
         }
 
@@ -57,12 +55,12 @@ namespace TTC_Payroll_System.Forms
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-
-            loan = new Classes.PagibigLoans();
             loan.employee_id = employee.id;
             loan.regular = nudRegular.Value;
             loan.calamity = nudCalamity.Value;
             loan.months_to_pay = Convert.ToInt32(nudMonthToPay.Value);
+            loan.months_paid = Convert.ToInt32(nudMonthsPaid.Value);
+            loan.fortnightly = chkFortNightly.Checked;
             loan.Save();
             showData();
         }

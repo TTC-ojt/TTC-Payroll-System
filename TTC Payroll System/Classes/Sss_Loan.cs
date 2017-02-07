@@ -14,6 +14,7 @@ namespace TTC_Payroll_System.Classes
         public decimal amount { get; set; }
         public int months_to_pay { get; set; }
         public int months_paid { get; set; }
+        public bool fortnightly { get; set; }
 
         public static List<Sss_Loan> getAll()
         {
@@ -37,6 +38,7 @@ namespace TTC_Payroll_System.Classes
                             loan.amount = rdr.GetDecimal(2);
                             loan.months_to_pay = rdr.GetInt32(3);
                             loan.months_paid = rdr.GetInt32(4);
+                            loan.fortnightly = rdr.GetBoolean(5);
                             loans.Add(loan);
                         }
                     }
@@ -72,6 +74,7 @@ namespace TTC_Payroll_System.Classes
                             loan.amount = rdr.GetDecimal(2);
                             loan.months_to_pay = rdr.GetInt32(3);
                             loan.months_paid = rdr.GetInt32(4);
+                            loan.fortnightly = rdr.GetBoolean(5);
                             loans.Add(loan);
                         }
                     }
@@ -106,6 +109,7 @@ namespace TTC_Payroll_System.Classes
                             loan.amount = rdr.GetDecimal(2);
                             loan.months_to_pay = rdr.GetInt32(3);
                             loan.months_paid = rdr.GetInt32(4);
+                            loan.fortnightly = rdr.GetBoolean(5);
                         }
                     }
                 }
@@ -125,11 +129,12 @@ namespace TTC_Payroll_System.Classes
                 {
                     MySqlCommand cmd = new MySqlCommand();
                     cmd.Connection = con;
-                    cmd.CommandText = "INSERT INTO sss_loans (employee_id,amount, months_to_pay, months_paid) VALUES (@employee_id, @amount, @months_to_pay, @months_paid)";
+                    cmd.CommandText = "INSERT INTO sss_loans (employee_id,amount, months_to_pay, months_paid, fortnightly) VALUES (@employee_id, @amount, @months_to_pay, @months_paid, @fortnightly)";
                     cmd.Parameters.AddWithValue("employee_id", employee_id);
                     cmd.Parameters.AddWithValue("amount", amount);
                     cmd.Parameters.AddWithValue("months_to_pay", months_to_pay);
                     cmd.Parameters.AddWithValue("months_paid", months_paid);
+                    cmd.Parameters.AddWithValue("fortnightly", fortnightly);
                     con.Open();
                     cmd.ExecuteNonQuery();
                 }

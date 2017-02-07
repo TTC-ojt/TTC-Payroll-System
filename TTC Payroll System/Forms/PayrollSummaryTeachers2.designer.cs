@@ -49,20 +49,23 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.dgvPayroll2 = new System.Windows.Forms.DataGridView();
             this.printPreviewDialog = new System.Windows.Forms.PrintPreviewDialog();
             this.printDocument = new System.Drawing.Printing.PrintDocument();
+            this.dgvPayroll2 = new System.Windows.Forms.DataGridView();
             this.payrollSummaryId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.employeeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.employeePosition = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.employeeSalary = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.halfmonth = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.deduction_sss = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.deduction_Philhealth = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.deduction_Pagibig = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.leavesWithoutPay = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.withholdingTax = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.netPay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcSSS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcPhilHealth = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcPagibig = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcSSSloans = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcPagibigRegular = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcPagibigCalamity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcLeaves = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcWithTax = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcNetPay = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.pnlPrint.SuspendLayout();
             this.pnlPrint2.SuspendLayout();
@@ -134,6 +137,7 @@
             // pnlPrint
             // 
             this.pnlPrint.BackColor = System.Drawing.Color.White;
+            this.pnlPrint.Controls.Add(this.dgvPayroll2);
             this.pnlPrint.Controls.Add(this.lblSummaryDate);
             this.pnlPrint.Controls.Add(this.pnlPrint2);
             this.pnlPrint.Controls.Add(this.pictureBox2);
@@ -141,7 +145,6 @@
             this.pnlPrint.Controls.Add(this.label3);
             this.pnlPrint.Controls.Add(this.label2);
             this.pnlPrint.Controls.Add(this.label1);
-            this.pnlPrint.Controls.Add(this.dgvPayroll2);
             this.pnlPrint.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlPrint.Location = new System.Drawing.Point(0, 0);
             this.pnlPrint.Name = "pnlPrint";
@@ -291,6 +294,21 @@
             this.label1.Text = "Jose and Demetria Cojuanco Foundation Inc.";
             this.label1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
+            // printPreviewDialog
+            // 
+            this.printPreviewDialog.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog.Document = this.printDocument;
+            this.printPreviewDialog.Enabled = true;
+            this.printPreviewDialog.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog.Icon")));
+            this.printPreviewDialog.Name = "printPreviewDialog";
+            this.printPreviewDialog.Visible = false;
+            // 
+            // printDocument
+            // 
+            this.printDocument.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument_PrintPage);
+            // 
             // dgvPayroll2
             // 
             this.dgvPayroll2.AllowUserToAddRows = false;
@@ -313,12 +331,15 @@
             this.employeePosition,
             this.employeeSalary,
             this.halfmonth,
-            this.deduction_sss,
-            this.deduction_Philhealth,
-            this.deduction_Pagibig,
-            this.leavesWithoutPay,
-            this.withholdingTax,
-            this.netPay});
+            this.dgcSSS,
+            this.dgcPhilHealth,
+            this.dgcPagibig,
+            this.dgcSSSloans,
+            this.dgcPagibigRegular,
+            this.dgcPagibigCalamity,
+            this.dgcLeaves,
+            this.dgcWithTax,
+            this.dgcNetPay});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -328,28 +349,13 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvPayroll2.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvPayroll2.EnableHeadersVisualStyles = false;
-            this.dgvPayroll2.Location = new System.Drawing.Point(0, 105);
+            this.dgvPayroll2.Location = new System.Drawing.Point(3, 102);
             this.dgvPayroll2.MultiSelect = false;
             this.dgvPayroll2.Name = "dgvPayroll2";
             this.dgvPayroll2.RowHeadersVisible = false;
             this.dgvPayroll2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPayroll2.Size = new System.Drawing.Size(993, 366);
-            this.dgvPayroll2.TabIndex = 1;
-            // 
-            // printPreviewDialog
-            // 
-            this.printPreviewDialog.AutoScrollMargin = new System.Drawing.Size(0, 0);
-            this.printPreviewDialog.AutoScrollMinSize = new System.Drawing.Size(0, 0);
-            this.printPreviewDialog.ClientSize = new System.Drawing.Size(400, 300);
-            this.printPreviewDialog.Document = this.printDocument;
-            this.printPreviewDialog.Enabled = true;
-            this.printPreviewDialog.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog.Icon")));
-            this.printPreviewDialog.Name = "printPreviewDialog";
-            this.printPreviewDialog.Visible = false;
-            // 
-            // printDocument
-            // 
-            this.printDocument.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument_PrintPage);
+            this.dgvPayroll2.TabIndex = 45;
             // 
             // payrollSummaryId
             // 
@@ -360,10 +366,11 @@
             // employeeName
             // 
             this.employeeName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.employeeName.FillWeight = 26F;
+            this.employeeName.FillWeight = 17F;
             this.employeeName.HeaderText = "EMPLOYEE";
             this.employeeName.Name = "employeeName";
             this.employeeName.ReadOnly = true;
+            this.employeeName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // employeePosition
             // 
@@ -372,6 +379,7 @@
             this.employeePosition.HeaderText = "POSITION";
             this.employeePosition.Name = "employeePosition";
             this.employeePosition.ReadOnly = true;
+            this.employeePosition.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // employeeSalary
             // 
@@ -379,6 +387,8 @@
             this.employeeSalary.FillWeight = 8F;
             this.employeeSalary.HeaderText = "MONTHLY RATE";
             this.employeeSalary.Name = "employeeSalary";
+            this.employeeSalary.ReadOnly = true;
+            this.employeeSalary.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // halfmonth
             // 
@@ -386,48 +396,78 @@
             this.halfmonth.FillWeight = 8F;
             this.halfmonth.HeaderText = "HALFMONTH";
             this.halfmonth.Name = "halfmonth";
+            this.halfmonth.ReadOnly = true;
+            this.halfmonth.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // deduction_sss
+            // dgcSSS
             // 
-            this.deduction_sss.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.deduction_sss.FillWeight = 7F;
-            this.deduction_sss.HeaderText = "SSS";
-            this.deduction_sss.Name = "deduction_sss";
+            this.dgcSSS.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dgcSSS.FillWeight = 8F;
+            this.dgcSSS.HeaderText = "SSS";
+            this.dgcSSS.Name = "dgcSSS";
+            this.dgcSSS.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // deduction_Philhealth
+            // dgcPhilHealth
             // 
-            this.deduction_Philhealth.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.deduction_Philhealth.FillWeight = 7F;
-            this.deduction_Philhealth.HeaderText = "PHIL HEALTH";
-            this.deduction_Philhealth.Name = "deduction_Philhealth";
+            this.dgcPhilHealth.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dgcPhilHealth.FillWeight = 8F;
+            this.dgcPhilHealth.HeaderText = "PHIL HEALTH";
+            this.dgcPhilHealth.Name = "dgcPhilHealth";
+            this.dgcPhilHealth.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // deduction_Pagibig
+            // dgcPagibig
             // 
-            this.deduction_Pagibig.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.deduction_Pagibig.FillWeight = 7F;
-            this.deduction_Pagibig.HeaderText = "PAG-IBIG";
-            this.deduction_Pagibig.Name = "deduction_Pagibig";
+            this.dgcPagibig.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dgcPagibig.FillWeight = 8F;
+            this.dgcPagibig.HeaderText = "PAG-IBIG";
+            this.dgcPagibig.Name = "dgcPagibig";
+            this.dgcPagibig.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // leavesWithoutPay
+            // dgcSSSloans
             // 
-            this.leavesWithoutPay.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.leavesWithoutPay.FillWeight = 7F;
-            this.leavesWithoutPay.HeaderText = "LEAVES W/O PAY";
-            this.leavesWithoutPay.Name = "leavesWithoutPay";
+            this.dgcSSSloans.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dgcSSSloans.FillWeight = 8F;
+            this.dgcSSSloans.HeaderText = "SSS LOANS";
+            this.dgcSSSloans.Name = "dgcSSSloans";
             // 
-            // withholdingTax
+            // dgcPagibigRegular
             // 
-            this.withholdingTax.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.withholdingTax.FillWeight = 9F;
-            this.withholdingTax.HeaderText = "WITHHOLDING TAX";
-            this.withholdingTax.Name = "withholdingTax";
+            this.dgcPagibigRegular.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dgcPagibigRegular.FillWeight = 8F;
+            this.dgcPagibigRegular.HeaderText = "REGULAR";
+            this.dgcPagibigRegular.Name = "dgcPagibigRegular";
             // 
-            // netPay
+            // dgcPagibigCalamity
             // 
-            this.netPay.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.netPay.FillWeight = 7F;
-            this.netPay.HeaderText = "NETPAY";
-            this.netPay.Name = "netPay";
+            this.dgcPagibigCalamity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dgcPagibigCalamity.FillWeight = 8F;
+            this.dgcPagibigCalamity.HeaderText = "CALAMITY";
+            this.dgcPagibigCalamity.Name = "dgcPagibigCalamity";
+            // 
+            // dgcLeaves
+            // 
+            this.dgcLeaves.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dgcLeaves.FillWeight = 8F;
+            this.dgcLeaves.HeaderText = "LEAVES W/O PAY";
+            this.dgcLeaves.Name = "dgcLeaves";
+            this.dgcLeaves.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // dgcWithTax
+            // 
+            this.dgcWithTax.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dgcWithTax.FillWeight = 8F;
+            this.dgcWithTax.HeaderText = "WITHHOLDING TAX";
+            this.dgcWithTax.Name = "dgcWithTax";
+            this.dgcWithTax.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // dgcNetPay
+            // 
+            this.dgcNetPay.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dgcNetPay.FillWeight = 8F;
+            this.dgcNetPay.HeaderText = "NETPAY";
+            this.dgcNetPay.Name = "dgcNetPay";
+            this.dgcNetPay.ReadOnly = true;
+            this.dgcNetPay.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // PayrollSummaryTeachers2
             // 
@@ -473,20 +513,23 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dgvPayroll2;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog;
         private System.Drawing.Printing.PrintDocument printDocument;
         private System.Windows.Forms.Label lblSummaryDate;
+        private System.Windows.Forms.DataGridView dgvPayroll2;
         private System.Windows.Forms.DataGridViewTextBoxColumn payrollSummaryId;
         private System.Windows.Forms.DataGridViewTextBoxColumn employeeName;
         private System.Windows.Forms.DataGridViewTextBoxColumn employeePosition;
         private System.Windows.Forms.DataGridViewTextBoxColumn employeeSalary;
         private System.Windows.Forms.DataGridViewTextBoxColumn halfmonth;
-        private System.Windows.Forms.DataGridViewTextBoxColumn deduction_sss;
-        private System.Windows.Forms.DataGridViewTextBoxColumn deduction_Philhealth;
-        private System.Windows.Forms.DataGridViewTextBoxColumn deduction_Pagibig;
-        private System.Windows.Forms.DataGridViewTextBoxColumn leavesWithoutPay;
-        private System.Windows.Forms.DataGridViewTextBoxColumn withholdingTax;
-        private System.Windows.Forms.DataGridViewTextBoxColumn netPay;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcSSS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcPhilHealth;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcPagibig;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcSSSloans;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcPagibigRegular;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcPagibigCalamity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcLeaves;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcWithTax;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcNetPay;
     }
 }
