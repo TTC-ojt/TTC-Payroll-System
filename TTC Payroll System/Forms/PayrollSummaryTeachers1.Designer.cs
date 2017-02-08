@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PayrollSummaryTeachers1));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PayrollSummaryTeachers1));
             this.panel1 = new System.Windows.Forms.Panel();
             this.pnlPrint = new System.Windows.Forms.Panel();
             this.lblSummaryDate = new System.Windows.Forms.Label();
@@ -47,11 +47,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvPayroll1 = new System.Windows.Forms.DataGridView();
-            this.btnClose = new System.Windows.Forms.Button();
-            this.btnPrint = new System.Windows.Forms.Button();
-            this.btnPayslip = new System.Windows.Forms.Button();
-            this.printDocument = new System.Drawing.Printing.PrintDocument();
-            this.printPreviewDialog = new System.Windows.Forms.PrintPreviewDialog();
             this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colEmployeeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPosition = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,6 +58,12 @@
             this.dgcLeaves = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcWithTax = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcNetPay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.btnPrint = new System.Windows.Forms.Button();
+            this.btnPayslip = new System.Windows.Forms.Button();
+            this.printDocument = new System.Drawing.Printing.PrintDocument();
+            this.printPreviewDialog = new System.Windows.Forms.PrintPreviewDialog();
+            this.btnExportToExcel = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.pnlPrint.SuspendLayout();
             this.pnlPrint2.SuspendLayout();
@@ -74,6 +75,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel1.Controls.Add(this.btnExportToExcel);
             this.panel1.Controls.Add(this.pnlPrint);
             this.panel1.Controls.Add(this.btnClose);
             this.panel1.Controls.Add(this.btnPrint);
@@ -292,68 +294,6 @@
             this.dgvPayroll1.TabIndex = 2;
             this.dgvPayroll1.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPayroll1_CellEndEdit);
             // 
-            // btnClose
-            // 
-            this.btnClose.BackColor = System.Drawing.Color.Silver;
-            this.btnClose.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.ForeColor = System.Drawing.Color.Black;
-            this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
-            this.btnClose.Location = new System.Drawing.Point(3, 493);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(65, 65);
-            this.btnClose.TabIndex = 31;
-            this.btnClose.Text = "CLOSE";
-            this.btnClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnClose.UseVisualStyleBackColor = false;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // btnPrint
-            // 
-            this.btnPrint.BackColor = System.Drawing.Color.Silver;
-            this.btnPrint.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
-            this.btnPrint.FlatAppearance.BorderSize = 2;
-            this.btnPrint.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPrint.Image = ((System.Drawing.Image)(resources.GetObject("btnPrint.Image")));
-            this.btnPrint.Location = new System.Drawing.Point(931, 493);
-            this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(65, 65);
-            this.btnPrint.TabIndex = 3;
-            this.btnPrint.Text = "PRINT";
-            this.btnPrint.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnPrint.UseVisualStyleBackColor = false;
-            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
-            // 
-            // btnPayslip
-            // 
-            this.btnPayslip.BackColor = System.Drawing.Color.Silver;
-            this.btnPayslip.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
-            this.btnPayslip.FlatAppearance.BorderSize = 2;
-            this.btnPayslip.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPayslip.Image = ((System.Drawing.Image)(resources.GetObject("btnPayslip.Image")));
-            this.btnPayslip.Location = new System.Drawing.Point(864, 493);
-            this.btnPayslip.Name = "btnPayslip";
-            this.btnPayslip.Size = new System.Drawing.Size(65, 65);
-            this.btnPayslip.TabIndex = 3;
-            this.btnPayslip.Text = "PAYSLIP PRINT";
-            this.btnPayslip.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnPayslip.UseVisualStyleBackColor = false;
-            this.btnPayslip.Click += new System.EventHandler(this.btnPayslip_Click);
-            // 
-            // printDocument
-            // 
-            this.printDocument.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument_PrintPage);
-            // 
-            // printPreviewDialog
-            // 
-            this.printPreviewDialog.AutoScrollMargin = new System.Drawing.Size(0, 0);
-            this.printPreviewDialog.AutoScrollMinSize = new System.Drawing.Size(0, 0);
-            this.printPreviewDialog.ClientSize = new System.Drawing.Size(400, 300);
-            this.printPreviewDialog.Document = this.printDocument;
-            this.printPreviewDialog.Enabled = true;
-            this.printPreviewDialog.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog.Icon")));
-            this.printPreviewDialog.Name = "printPreviewDialog";
-            this.printPreviewDialog.Visible = false;
-            // 
             // colID
             // 
             this.colID.HeaderText = "ID";
@@ -443,6 +383,85 @@
             this.dgcNetPay.ReadOnly = true;
             this.dgcNetPay.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
+            // btnClose
+            // 
+            this.btnClose.BackColor = System.Drawing.Color.Silver;
+            this.btnClose.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.ForeColor = System.Drawing.Color.Black;
+            this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
+            this.btnClose.Location = new System.Drawing.Point(3, 493);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(65, 65);
+            this.btnClose.TabIndex = 31;
+            this.btnClose.Text = "CLOSE";
+            this.btnClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // btnPrint
+            // 
+            this.btnPrint.BackColor = System.Drawing.Color.Silver;
+            this.btnPrint.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.btnPrint.FlatAppearance.BorderSize = 2;
+            this.btnPrint.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrint.Image = ((System.Drawing.Image)(resources.GetObject("btnPrint.Image")));
+            this.btnPrint.Location = new System.Drawing.Point(931, 493);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(65, 65);
+            this.btnPrint.TabIndex = 3;
+            this.btnPrint.Text = "PRINT";
+            this.btnPrint.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnPrint.UseVisualStyleBackColor = false;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            // 
+            // btnPayslip
+            // 
+            this.btnPayslip.BackColor = System.Drawing.Color.Silver;
+            this.btnPayslip.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.btnPayslip.FlatAppearance.BorderSize = 2;
+            this.btnPayslip.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPayslip.Image = ((System.Drawing.Image)(resources.GetObject("btnPayslip.Image")));
+            this.btnPayslip.Location = new System.Drawing.Point(864, 493);
+            this.btnPayslip.Name = "btnPayslip";
+            this.btnPayslip.Size = new System.Drawing.Size(65, 65);
+            this.btnPayslip.TabIndex = 3;
+            this.btnPayslip.Text = "PAYSLIP PRINT";
+            this.btnPayslip.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnPayslip.UseVisualStyleBackColor = false;
+            this.btnPayslip.Click += new System.EventHandler(this.btnPayslip_Click);
+            // 
+            // printDocument
+            // 
+            this.printDocument.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument_PrintPage);
+            // 
+            // printPreviewDialog
+            // 
+            this.printPreviewDialog.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog.Document = this.printDocument;
+            this.printPreviewDialog.Enabled = true;
+            this.printPreviewDialog.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog.Icon")));
+            this.printPreviewDialog.Name = "printPreviewDialog";
+            this.printPreviewDialog.Visible = false;
+            // 
+            // btnExportToExcel
+            // 
+            this.btnExportToExcel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnExportToExcel.BackColor = System.Drawing.Color.Silver;
+            this.btnExportToExcel.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.btnExportToExcel.FlatAppearance.BorderSize = 2;
+            this.btnExportToExcel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExportToExcel.Image = ((System.Drawing.Image)(resources.GetObject("btnExportToExcel.Image")));
+            this.btnExportToExcel.Location = new System.Drawing.Point(793, 493);
+            this.btnExportToExcel.Name = "btnExportToExcel";
+            this.btnExportToExcel.Size = new System.Drawing.Size(65, 65);
+            this.btnExportToExcel.TabIndex = 4;
+            this.btnExportToExcel.Text = "Export to Excel";
+            this.btnExportToExcel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnExportToExcel.UseVisualStyleBackColor = false;
+            this.btnExportToExcel.Click += new System.EventHandler(this.btnExportToExcel_Click);
+            // 
             // PayrollSummaryTeachers1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -502,5 +521,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcLeaves;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcWithTax;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcNetPay;
+        private System.Windows.Forms.Button btnExportToExcel;
     }
 }

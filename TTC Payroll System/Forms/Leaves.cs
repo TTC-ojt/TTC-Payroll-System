@@ -35,8 +35,7 @@ namespace TTC_Payroll_System.Forms
         private void cbxEmployeeCode_SelectedIndexChanged(object sender, EventArgs e)
         {
             employee = Classes.Employee.getByCode(cbxEmployeeCode.SelectedItem.ToString());
-            string name = employee.firstname + " " + employee.lastname + " " + employee.extname;
-            txtEmployeeName.Text = name;
+            txtEmployeeName.Text = employee.GetFullName();
             showData();
         }
 
@@ -50,10 +49,9 @@ namespace TTC_Payroll_System.Forms
             foreach (Classes.Leave leave in leaves)
             {
                 employee = Classes.Employee.getById(leave.employee_id);
-                string name = employee.firstname + " " + employee.lastname + " " + employee.extname;
                 string leavetype = "";
                 if (leave.HalfDay) leavetype = "Half Day"; else leavetype = "Whole Day";
-                dgvLeaves.Rows.Add(leave.id, name, leave.leave_date.ToShortDateString(), leavetype);
+                dgvLeaves.Rows.Add(leave.id, employee.GetFullName(), leave.leave_date.ToShortDateString(), leavetype, leave.Count);
             }
             dgvLeaves.ClearSelection();
         }
@@ -64,6 +62,7 @@ namespace TTC_Payroll_System.Forms
             leave.employee_id = employee.id;
             leave.leave_date = dtpLeaveDate.Value;
             leave.HalfDay = chkHalfDay.Checked;
+            leave.Count = nudCount.Value;
             leave.Save();
             showData();
         }

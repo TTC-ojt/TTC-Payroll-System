@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PayrollSummaryPartTime2));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PayrollSummaryPartTime2));
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnPrint = new System.Windows.Forms.Button();
@@ -50,8 +50,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvPayroll2 = new System.Windows.Forms.DataGridView();
-            this.printPreviewDialog = new System.Windows.Forms.PrintPreviewDialog();
-            this.printDocument = new System.Drawing.Printing.PrintDocument();
             this.payrollSummaryId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.employeeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.employeePosition = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,6 +57,9 @@
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcWithTax = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcNetPay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.printPreviewDialog = new System.Windows.Forms.PrintPreviewDialog();
+            this.printDocument = new System.Drawing.Printing.PrintDocument();
+            this.btnExportToExcel = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.pnlPrint.SuspendLayout();
             this.pnlPrint2.SuspendLayout();
@@ -70,6 +71,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel1.Controls.Add(this.btnExportToExcel);
             this.panel1.Controls.Add(this.btnClose);
             this.panel1.Controls.Add(this.btnPrint);
             this.panel1.Controls.Add(this.btnPayslip);
@@ -329,21 +331,6 @@
             this.dgvPayroll2.TabIndex = 1;
             this.dgvPayroll2.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPayroll2_CellEndEdit);
             // 
-            // printPreviewDialog
-            // 
-            this.printPreviewDialog.AutoScrollMargin = new System.Drawing.Size(0, 0);
-            this.printPreviewDialog.AutoScrollMinSize = new System.Drawing.Size(0, 0);
-            this.printPreviewDialog.ClientSize = new System.Drawing.Size(400, 300);
-            this.printPreviewDialog.Document = this.printDocument;
-            this.printPreviewDialog.Enabled = true;
-            this.printPreviewDialog.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog.Icon")));
-            this.printPreviewDialog.Name = "printPreviewDialog";
-            this.printPreviewDialog.Visible = false;
-            // 
-            // printDocument
-            // 
-            this.printDocument.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument_PrintPage);
-            // 
             // payrollSummaryId
             // 
             this.payrollSummaryId.HeaderText = "ID";
@@ -403,6 +390,38 @@
             this.dgcNetPay.ReadOnly = true;
             this.dgcNetPay.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
+            // printPreviewDialog
+            // 
+            this.printPreviewDialog.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog.Document = this.printDocument;
+            this.printPreviewDialog.Enabled = true;
+            this.printPreviewDialog.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog.Icon")));
+            this.printPreviewDialog.Name = "printPreviewDialog";
+            this.printPreviewDialog.Visible = false;
+            // 
+            // printDocument
+            // 
+            this.printDocument.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument_PrintPage);
+            // 
+            // btnExportToExcel
+            // 
+            this.btnExportToExcel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnExportToExcel.BackColor = System.Drawing.Color.Silver;
+            this.btnExportToExcel.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.btnExportToExcel.FlatAppearance.BorderSize = 2;
+            this.btnExportToExcel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExportToExcel.Image = ((System.Drawing.Image)(resources.GetObject("btnExportToExcel.Image")));
+            this.btnExportToExcel.Location = new System.Drawing.Point(789, 573);
+            this.btnExportToExcel.Name = "btnExportToExcel";
+            this.btnExportToExcel.Size = new System.Drawing.Size(65, 65);
+            this.btnExportToExcel.TabIndex = 4;
+            this.btnExportToExcel.Text = "Export to Excel";
+            this.btnExportToExcel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnExportToExcel.UseVisualStyleBackColor = false;
+            this.btnExportToExcel.Click += new System.EventHandler(this.btnExportToExcel_Click);
+            // 
             // PayrollSummaryPartTime2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -458,5 +477,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcWithTax;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcNetPay;
+        private System.Windows.Forms.Button btnExportToExcel;
     }
 }

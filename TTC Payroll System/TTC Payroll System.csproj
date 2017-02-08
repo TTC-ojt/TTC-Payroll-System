@@ -38,6 +38,11 @@
     <StartupObject>TTC_Payroll_System.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>C:\Program Files (x86)\Microsoft Office\Office15\DCF\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
     <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Program Files (x86)\MySQL\Connector.NET 6.9\Assemblies\v4.0\MySql.Data.dll</HintPath>
@@ -58,7 +63,6 @@
     <Compile Include="Classes\Connection.cs" />
     <Compile Include="Classes\Department.cs" />
     <Compile Include="Classes\Employee.cs" />
-    <Compile Include="Classes\Late.cs" />
     <Compile Include="Classes\Leave.cs" />
     <Compile Include="Classes\FixedDeductions.cs" />
     <Compile Include="Classes\PagibigLoans.cs" />
@@ -81,6 +85,12 @@
     </Compile>
     <Compile Include="Forms\Allowances.Designer.cs">
       <DependentUpon>Allowances.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ExcessLoadInput.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ExcessLoadInput.Designer.cs">
+      <DependentUpon>ExcessLoadInput.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Leaves.cs">
       <SubType>Form</SubType>
@@ -129,6 +139,12 @@
     </Compile>
     <Compile Include="Forms\Print\Payslip2nd.Designer.cs">
       <DependentUpon>Payslip2nd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ExcessLoad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ExcessLoad.Designer.cs">
+      <DependentUpon>ExcessLoad.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\SocialObligation.cs">
       <SubType>Form</SubType>
@@ -190,12 +206,6 @@
     <Compile Include="Forms\Sss.Designer.cs">
       <DependentUpon>Sss.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\UTD.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\UTD.designer.cs">
-      <DependentUpon>UTD.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\Withholdingtax.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -215,6 +225,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ConnectionSettings.resx">
       <DependentUpon>ConnectionSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ExcessLoadInput.resx">
+      <DependentUpon>ExcessLoadInput.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Leaves.resx">
       <DependentUpon>Leaves.cs</DependentUpon>
@@ -239,6 +252,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Print\Payslip2nd.resx">
       <DependentUpon>Payslip2nd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ExcessLoad.resx">
+      <DependentUpon>ExcessLoad.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SocialObligation.resx">
       <DependentUpon>SocialObligation.cs</DependentUpon>
@@ -269,9 +285,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Sss.resx">
       <DependentUpon>Sss.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\UTD.resx">
-      <DependentUpon>UTD.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Withholdingtax.resx">
       <DependentUpon>Withholdingtax.cs</DependentUpon>

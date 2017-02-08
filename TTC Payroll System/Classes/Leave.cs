@@ -12,6 +12,7 @@ namespace TTC_Payroll_System.Classes
         public int employee_id { get; set; }
         public DateTime leave_date { get; set; }
         public bool HalfDay { get; set; }
+        public decimal Count { get; set; }
 
         public static List<Leave> getAll()
         {
@@ -34,6 +35,7 @@ namespace TTC_Payroll_System.Classes
                             leave.employee_id = rdr.GetInt32(1);
                             leave.leave_date = rdr.GetDateTime(2);
                             leave.HalfDay = rdr.GetBoolean(3);
+                            leave.Count = rdr.GetDecimal(4);
                             leaves.Add(leave);
                         }
                     }
@@ -69,6 +71,7 @@ namespace TTC_Payroll_System.Classes
                             leave.employee_id = rdr.GetInt32(1);
                             leave.leave_date = rdr.GetDateTime(2);
                             leave.HalfDay = rdr.GetBoolean(3);
+                            leave.Count = rdr.GetDecimal(4);
                             leaves.Add(leave);
                         }
                     }
@@ -106,6 +109,7 @@ namespace TTC_Payroll_System.Classes
                             leave.employee_id = rdr.GetInt32(1);
                             leave.leave_date = rdr.GetDateTime(2);
                             leave.HalfDay = rdr.GetBoolean(3);
+                            leave.Count = rdr.GetDecimal(4);
                             leaves.Add(leave);
                         }
                     }
@@ -127,10 +131,18 @@ namespace TTC_Payroll_System.Classes
                 {
                     MySqlCommand cmd = new MySqlCommand();
                     cmd.Connection = con;
-                    cmd.CommandText = "INSERT INTO leaves (employee_id,`date`, half_day) VALUES (@employee_id, @date, @half_day)";
+                    if (id > 0)
+                    {
+                        cmd.CommandText = "UPDATE leaves SET `date` = @date, half_day = @half_day, count = @count WHERE employee_id = @employee_id";
+                    }
+                    else
+                    {
+                        cmd.CommandText = "INSERT INTO leaves (employee_id,`date`, half_day, count) VALUES (@employee_id, @date, @half_day, @count)";
+                    }
                     cmd.Parameters.AddWithValue("employee_id", employee_id);
                     cmd.Parameters.AddWithValue("date", leave_date);
                     cmd.Parameters.AddWithValue("half_day", HalfDay);
+                    cmd.Parameters.AddWithValue("count", Count);
                     con.Open();
                     cmd.ExecuteNonQuery();
                 }

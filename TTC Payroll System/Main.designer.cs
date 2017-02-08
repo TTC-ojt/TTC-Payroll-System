@@ -51,13 +51,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblDateTime = new System.Windows.Forms.Label();
+            this.btnConnectionSettings = new System.Windows.Forms.Button();
             this.btnTeachersPayroll1 = new System.Windows.Forms.Button();
             this.btnPartTimePayroll2 = new System.Windows.Forms.Button();
             this.btnPartTimePayroll1 = new System.Windows.Forms.Button();
             this.btnTeachersPayroll2 = new System.Windows.Forms.Button();
             this.btnAllowance = new System.Windows.Forms.Button();
             this.tmrDateTime = new System.Windows.Forms.Timer(this.components);
-            this.btnConnectionSettings = new System.Windows.Forms.Button();
+            this.btnExcessLoad = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -71,7 +72,7 @@
             this.btnDepartments.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDepartments.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDepartments.Image = ((System.Drawing.Image)(resources.GetObject("btnDepartments.Image")));
-            this.btnDepartments.Location = new System.Drawing.Point(53, 407);
+            this.btnDepartments.Location = new System.Drawing.Point(111, 407);
             this.btnDepartments.Name = "btnDepartments";
             this.btnDepartments.Size = new System.Drawing.Size(95, 64);
             this.btnDepartments.TabIndex = 10;
@@ -88,7 +89,7 @@
             this.btnPositions.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPositions.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPositions.Image = ((System.Drawing.Image)(resources.GetObject("btnPositions.Image")));
-            this.btnPositions.Location = new System.Drawing.Point(154, 407);
+            this.btnPositions.Location = new System.Drawing.Point(212, 407);
             this.btnPositions.Name = "btnPositions";
             this.btnPositions.Size = new System.Drawing.Size(90, 64);
             this.btnPositions.TabIndex = 11;
@@ -118,7 +119,7 @@
             this.btnPhilHealth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPhilHealth.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPhilHealth.Image = ((System.Drawing.Image)(resources.GetObject("btnPhilHealth.Image")));
-            this.btnPhilHealth.Location = new System.Drawing.Point(346, 407);
+            this.btnPhilHealth.Location = new System.Drawing.Point(404, 407);
             this.btnPhilHealth.Name = "btnPhilHealth";
             this.btnPhilHealth.Size = new System.Drawing.Size(90, 64);
             this.btnPhilHealth.TabIndex = 13;
@@ -135,7 +136,7 @@
             this.btnEmployees.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEmployees.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEmployees.Image = ((System.Drawing.Image)(resources.GetObject("btnEmployees.Image")));
-            this.btnEmployees.Location = new System.Drawing.Point(250, 407);
+            this.btnEmployees.Location = new System.Drawing.Point(308, 407);
             this.btnEmployees.Name = "btnEmployees";
             this.btnEmployees.Size = new System.Drawing.Size(90, 64);
             this.btnEmployees.TabIndex = 12;
@@ -152,7 +153,7 @@
             this.btnSss.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSss.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSss.Image = ((System.Drawing.Image)(resources.GetObject("btnSss.Image")));
-            this.btnSss.Location = new System.Drawing.Point(538, 407);
+            this.btnSss.Location = new System.Drawing.Point(596, 407);
             this.btnSss.Name = "btnSss";
             this.btnSss.Size = new System.Drawing.Size(90, 64);
             this.btnSss.TabIndex = 15;
@@ -169,7 +170,7 @@
             this.btnPagibig.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPagibig.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPagibig.Image = ((System.Drawing.Image)(resources.GetObject("btnPagibig.Image")));
-            this.btnPagibig.Location = new System.Drawing.Point(442, 407);
+            this.btnPagibig.Location = new System.Drawing.Point(500, 407);
             this.btnPagibig.Name = "btnPagibig";
             this.btnPagibig.Size = new System.Drawing.Size(90, 64);
             this.btnPagibig.TabIndex = 14;
@@ -186,7 +187,7 @@
             this.btnPayrollSummary2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPayrollSummary2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPayrollSummary2.Image = ((System.Drawing.Image)(resources.GetObject("btnPayrollSummary2.Image")));
-            this.btnPayrollSummary2.Location = new System.Drawing.Point(169, 127);
+            this.btnPayrollSummary2.Location = new System.Drawing.Point(230, 127);
             this.btnPayrollSummary2.Name = "btnPayrollSummary2";
             this.btnPayrollSummary2.Size = new System.Drawing.Size(102, 118);
             this.btnPayrollSummary2.TabIndex = 1;
@@ -204,7 +205,7 @@
             this.btnTax.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTax.ForeColor = System.Drawing.Color.Black;
             this.btnTax.Image = ((System.Drawing.Image)(resources.GetObject("btnTax.Image")));
-            this.btnTax.Location = new System.Drawing.Point(390, 310);
+            this.btnTax.Location = new System.Drawing.Point(448, 310);
             this.btnTax.Name = "btnTax";
             this.btnTax.Size = new System.Drawing.Size(100, 75);
             this.btnTax.TabIndex = 9;
@@ -222,7 +223,7 @@
             this.btnLeaves.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLeaves.ForeColor = System.Drawing.Color.Black;
             this.btnLeaves.Image = ((System.Drawing.Image)(resources.GetObject("btnLeaves.Image")));
-            this.btnLeaves.Location = new System.Drawing.Point(284, 310);
+            this.btnLeaves.Location = new System.Drawing.Point(342, 310);
             this.btnLeaves.Name = "btnLeaves";
             this.btnLeaves.Size = new System.Drawing.Size(100, 75);
             this.btnLeaves.TabIndex = 7;
@@ -240,7 +241,7 @@
             this.btnSssLoans.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSssLoans.ForeColor = System.Drawing.Color.Black;
             this.btnSssLoans.Image = ((System.Drawing.Image)(resources.GetObject("btnSssLoans.Image")));
-            this.btnSssLoans.Location = new System.Drawing.Point(72, 310);
+            this.btnSssLoans.Location = new System.Drawing.Point(130, 310);
             this.btnSssLoans.Name = "btnSssLoans";
             this.btnSssLoans.Size = new System.Drawing.Size(100, 75);
             this.btnSssLoans.TabIndex = 5;
@@ -258,7 +259,7 @@
             this.btnPagIbigLoan.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPagIbigLoan.ForeColor = System.Drawing.Color.Black;
             this.btnPagIbigLoan.Image = ((System.Drawing.Image)(resources.GetObject("btnPagIbigLoan.Image")));
-            this.btnPagIbigLoan.Location = new System.Drawing.Point(178, 310);
+            this.btnPagIbigLoan.Location = new System.Drawing.Point(236, 310);
             this.btnPagIbigLoan.Name = "btnPagIbigLoan";
             this.btnPagIbigLoan.Size = new System.Drawing.Size(100, 75);
             this.btnPagIbigLoan.TabIndex = 6;
@@ -275,7 +276,7 @@
             this.btnPayrollSummary1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPayrollSummary1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPayrollSummary1.Image = ((System.Drawing.Image)(resources.GetObject("btnPayrollSummary1.Image")));
-            this.btnPayrollSummary1.Location = new System.Drawing.Point(59, 127);
+            this.btnPayrollSummary1.Location = new System.Drawing.Point(120, 127);
             this.btnPayrollSummary1.Name = "btnPayrollSummary1";
             this.btnPayrollSummary1.Size = new System.Drawing.Size(104, 118);
             this.btnPayrollSummary1.TabIndex = 0;
@@ -291,7 +292,7 @@
             this.btnSocialObligations.FlatAppearance.BorderSize = 2;
             this.btnSocialObligations.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSocialObligations.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSocialObligations.Location = new System.Drawing.Point(496, 127);
+            this.btnSocialObligations.Location = new System.Drawing.Point(557, 127);
             this.btnSocialObligations.Name = "btnSocialObligations";
             this.btnSocialObligations.Size = new System.Drawing.Size(104, 118);
             this.btnSocialObligations.TabIndex = 4;
@@ -317,6 +318,7 @@
             this.panel1.Controls.Add(this.btnPagIbigLoan);
             this.panel1.Controls.Add(this.btnPhilHealth);
             this.panel1.Controls.Add(this.btnPagibig);
+            this.panel1.Controls.Add(this.btnExcessLoad);
             this.panel1.Controls.Add(this.btnPartTimePayroll2);
             this.panel1.Controls.Add(this.btnPartTimePayroll1);
             this.panel1.Controls.Add(this.btnTeachersPayroll2);
@@ -332,13 +334,13 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(5, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(676, 522);
+            this.panel1.Size = new System.Drawing.Size(761, 522);
             this.panel1.TabIndex = 14;
             // 
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(484, 46);
+            this.pictureBox2.Location = new System.Drawing.Point(534, 46);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(66, 65);
             this.pictureBox2.TabIndex = 18;
@@ -347,7 +349,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(130, 51);
+            this.pictureBox1.Location = new System.Drawing.Point(180, 51);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(66, 53);
             this.pictureBox1.TabIndex = 19;
@@ -357,7 +359,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(202, 88);
+            this.label3.Location = new System.Drawing.Point(252, 88);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(277, 16);
             this.label3.TabIndex = 17;
@@ -368,7 +370,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Algerian", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(240, 72);
+            this.label2.Location = new System.Drawing.Point(290, 72);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(207, 18);
             this.label2.TabIndex = 16;
@@ -379,7 +381,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(203, 51);
+            this.label1.Location = new System.Drawing.Point(253, 51);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(283, 19);
             this.label1.TabIndex = 15;
@@ -392,12 +394,27 @@
             this.lblDateTime.BackColor = System.Drawing.Color.WhiteSmoke;
             this.lblDateTime.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDateTime.ForeColor = System.Drawing.Color.Black;
-            this.lblDateTime.Location = new System.Drawing.Point(433, 1);
+            this.lblDateTime.Location = new System.Drawing.Point(518, 1);
             this.lblDateTime.Name = "lblDateTime";
             this.lblDateTime.Size = new System.Drawing.Size(242, 33);
             this.lblDateTime.TabIndex = 0;
             this.lblDateTime.Text = "DateTime";
             this.lblDateTime.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // btnConnectionSettings
+            // 
+            this.btnConnectionSettings.AutoSize = true;
+            this.btnConnectionSettings.BackColor = System.Drawing.Color.Transparent;
+            this.btnConnectionSettings.FlatAppearance.BorderSize = 0;
+            this.btnConnectionSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConnectionSettings.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConnectionSettings.Image = ((System.Drawing.Image)(resources.GetObject("btnConnectionSettings.Image")));
+            this.btnConnectionSettings.Location = new System.Drawing.Point(720, 480);
+            this.btnConnectionSettings.Name = "btnConnectionSettings";
+            this.btnConnectionSettings.Size = new System.Drawing.Size(38, 38);
+            this.btnConnectionSettings.TabIndex = 16;
+            this.btnConnectionSettings.UseVisualStyleBackColor = false;
+            this.btnConnectionSettings.Click += new System.EventHandler(this.btnConnectionSettings_Click);
             // 
             // btnTeachersPayroll1
             // 
@@ -407,7 +424,7 @@
             this.btnTeachersPayroll1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTeachersPayroll1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTeachersPayroll1.Image = ((System.Drawing.Image)(resources.GetObject("btnTeachersPayroll1.Image")));
-            this.btnTeachersPayroll1.Location = new System.Drawing.Point(277, 127);
+            this.btnTeachersPayroll1.Location = new System.Drawing.Point(338, 127);
             this.btnTeachersPayroll1.Name = "btnTeachersPayroll1";
             this.btnTeachersPayroll1.Size = new System.Drawing.Size(104, 118);
             this.btnTeachersPayroll1.TabIndex = 2;
@@ -423,7 +440,7 @@
             this.btnPartTimePayroll2.FlatAppearance.BorderSize = 2;
             this.btnPartTimePayroll2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPartTimePayroll2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPartTimePayroll2.Location = new System.Drawing.Point(330, 253);
+            this.btnPartTimePayroll2.Location = new System.Drawing.Point(332, 253);
             this.btnPartTimePayroll2.Name = "btnPartTimePayroll2";
             this.btnPartTimePayroll2.Size = new System.Drawing.Size(206, 51);
             this.btnPartTimePayroll2.TabIndex = 3;
@@ -439,7 +456,7 @@
             this.btnPartTimePayroll1.FlatAppearance.BorderSize = 2;
             this.btnPartTimePayroll1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPartTimePayroll1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPartTimePayroll1.Location = new System.Drawing.Point(118, 253);
+            this.btnPartTimePayroll1.Location = new System.Drawing.Point(120, 253);
             this.btnPartTimePayroll1.Name = "btnPartTimePayroll1";
             this.btnPartTimePayroll1.Size = new System.Drawing.Size(206, 51);
             this.btnPartTimePayroll1.TabIndex = 3;
@@ -456,7 +473,7 @@
             this.btnTeachersPayroll2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTeachersPayroll2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTeachersPayroll2.Image = ((System.Drawing.Image)(resources.GetObject("btnTeachersPayroll2.Image")));
-            this.btnTeachersPayroll2.Location = new System.Drawing.Point(387, 127);
+            this.btnTeachersPayroll2.Location = new System.Drawing.Point(448, 127);
             this.btnTeachersPayroll2.Name = "btnTeachersPayroll2";
             this.btnTeachersPayroll2.Size = new System.Drawing.Size(103, 118);
             this.btnTeachersPayroll2.TabIndex = 3;
@@ -474,7 +491,7 @@
             this.btnAllowance.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAllowance.ForeColor = System.Drawing.Color.Black;
             this.btnAllowance.Image = ((System.Drawing.Image)(resources.GetObject("btnAllowance.Image")));
-            this.btnAllowance.Location = new System.Drawing.Point(496, 310);
+            this.btnAllowance.Location = new System.Drawing.Point(554, 310);
             this.btnAllowance.Name = "btnAllowance";
             this.btnAllowance.Size = new System.Drawing.Size(100, 75);
             this.btnAllowance.TabIndex = 9;
@@ -489,27 +506,28 @@
             this.tmrDateTime.Interval = 1000;
             this.tmrDateTime.Tick += new System.EventHandler(this.tmrDateTime_Tick);
             // 
-            // btnConnectionSettings
+            // btnExcessLoad
             // 
-            this.btnConnectionSettings.AutoSize = true;
-            this.btnConnectionSettings.BackColor = System.Drawing.Color.Transparent;
-            this.btnConnectionSettings.FlatAppearance.BorderSize = 0;
-            this.btnConnectionSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConnectionSettings.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConnectionSettings.Image = ((System.Drawing.Image)(resources.GetObject("btnConnectionSettings.Image")));
-            this.btnConnectionSettings.Location = new System.Drawing.Point(635, 480);
-            this.btnConnectionSettings.Name = "btnConnectionSettings";
-            this.btnConnectionSettings.Size = new System.Drawing.Size(38, 38);
-            this.btnConnectionSettings.TabIndex = 16;
-            this.btnConnectionSettings.UseVisualStyleBackColor = false;
-            this.btnConnectionSettings.Click += new System.EventHandler(this.btnConnectionSettings_Click);
+            this.btnExcessLoad.BackColor = System.Drawing.Color.SkyBlue;
+            this.btnExcessLoad.FlatAppearance.BorderColor = System.Drawing.Color.DarkBlue;
+            this.btnExcessLoad.FlatAppearance.BorderSize = 2;
+            this.btnExcessLoad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExcessLoad.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExcessLoad.Location = new System.Drawing.Point(544, 253);
+            this.btnExcessLoad.Name = "btnExcessLoad";
+            this.btnExcessLoad.Size = new System.Drawing.Size(117, 51);
+            this.btnExcessLoad.TabIndex = 3;
+            this.btnExcessLoad.Text = "EXCESS LOAD";
+            this.btnExcessLoad.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnExcessLoad.UseVisualStyleBackColor = false;
+            this.btnExcessLoad.Click += new System.EventHandler(this.btnExcessLoad_Click);
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
-            this.ClientSize = new System.Drawing.Size(686, 532);
+            this.ClientSize = new System.Drawing.Size(771, 532);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Main";
@@ -555,6 +573,7 @@
         private System.Windows.Forms.Button btnAllowance;
         private System.Windows.Forms.Button btnPartTimePayroll2;
         private System.Windows.Forms.Button btnConnectionSettings;
+        private System.Windows.Forms.Button btnExcessLoad;
     }
 }
 

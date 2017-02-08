@@ -101,13 +101,6 @@ namespace TTC_Payroll_System
             this.Hide();
         }
 
-        private void btnUTD_Click(object sender, EventArgs e)
-        {
-            Forms.UTD utd = new Forms.UTD();
-            utd.Show();
-            this.Hide();
-        }
-
         private void btnSssLoans_Click(object sender, EventArgs e)
         {
             Forms.SssLoans loans = new Forms.SssLoans();
@@ -170,6 +163,13 @@ namespace TTC_Payroll_System
         {
             Forms.ConnectionSettings cs = new Forms.ConnectionSettings();
             cs.ShowDialog();
+        }
+
+        private void btnExcessLoad_Click(object sender, EventArgs e)
+        {
+            Forms.ExcessLoad el = new Forms.ExcessLoad();
+            el.Show();
+            Hide();
         }
     }
 }

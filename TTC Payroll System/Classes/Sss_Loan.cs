@@ -129,7 +129,14 @@ namespace TTC_Payroll_System.Classes
                 {
                     MySqlCommand cmd = new MySqlCommand();
                     cmd.Connection = con;
-                    cmd.CommandText = "INSERT INTO sss_loans (employee_id,amount, months_to_pay, months_paid, fortnightly) VALUES (@employee_id, @amount, @months_to_pay, @months_paid, @fortnightly)";
+                    if (id > 0)
+                    {
+                        cmd.CommandText = "UPDATE sss_loans SET amount = @amount, months_to_pay = @months_to_pay, fortnightly = @fortnightly WHERE employee_id = employee_id";
+                    }
+                    else
+                    {
+                        cmd.CommandText = "INSERT INTO sss_loans (employee_id,amount, months_to_pay, months_paid, fortnightly) VALUES (@employee_id, @amount, @months_to_pay, @months_paid, @fortnightly)";
+                    }
                     cmd.Parameters.AddWithValue("employee_id", employee_id);
                     cmd.Parameters.AddWithValue("amount", amount);
                     cmd.Parameters.AddWithValue("months_to_pay", months_to_pay);

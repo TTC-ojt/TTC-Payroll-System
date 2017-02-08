@@ -137,13 +137,13 @@ namespace TTC_Payroll_System.Classes
                     cmd.Connection = con;
                     if (id > 0)
                     {
-                        cmd.CommandText = "UPDATE pagibig_loans SET regular = @regular, calamity = @calamity, months_to_pay = @months_to_pay, months_paid = @months_paid, fortnightly = @fortnightly";
+                        cmd.CommandText = "UPDATE pagibig_loans SET regular = @regular, calamity = @calamity, months_to_pay = @months_to_pay, months_paid = @months_paid, fortnightly = @fortnightly WHERE employee_id = @employee_id";
                     }
                     else
                     {
                         cmd.CommandText = "INSERT INTO pagibig_loans (employee_id,regular, calamity, months_to_pay, months_paid, fortnightly) VALUES (@employee_id, @regular, @calamity, @months_to_pay, @months_paid, @fortnightly)";
-                        cmd.Parameters.AddWithValue("employee_id", employee_id);
                     }
+                    cmd.Parameters.AddWithValue("employee_id", employee_id);
                     cmd.Parameters.AddWithValue("regular", regular);
                     cmd.Parameters.AddWithValue("calamity", calamity);
                     cmd.Parameters.AddWithValue("months_to_pay", months_to_pay);

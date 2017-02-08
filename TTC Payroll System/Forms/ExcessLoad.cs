@@ -1,18 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.IO;
-using System.Linq;
 using System.Windows.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
 
 namespace TTC_Payroll_System.Forms
 {
-    public partial class SocialObligation : Form
+    public partial class ExcessLoad : Form
     {
-        public SocialObligation()
+        public ExcessLoad()
         {
             InitializeComponent();
         }
@@ -25,66 +23,17 @@ namespace TTC_Payroll_System.Forms
 
         private void showData()
         {
-            decimal total = 0m;
-            sos = Classes.SocialObligation.getByDate(date);
-            if (sos.Count == 0)
-            {
-                NewSet();
-                showData();
-                return;
-            }
-            dgvSocialObligation.Rows.Clear();
-            foreach (Classes.SocialObligation so in sos)
-            {
-                Classes.Employee employee = Classes.Employee.getById(so.employee_id);
-                Classes.Position position = Classes.Position.getById(employee.position_id);
-                foreach (Classes.Sss ss in sss)
-                {
-                    if (ss.monthlySalary <= position.salary)
-                    {
-                        so.sss_employee = ss.ssEe;
-                        so.sss_employer = ss.ssEr;
-                        so.sss_ec = ss.ecEr;
-                        break;
-                    }
-                }
-                foreach (Classes.PhilHealth philhealth in philhealths)
-                {
-                    if (philhealth.salary_base <= position.salary)
-                    {
-                        so.ph_employee = philhealth.employee_share;
-                        so.ph_employer = philhealth.employer_share;
-                        break;
-                    }
-                }
-                so.pi_employee = pagibig;
-                so.pi_employer = pagibig;
-                decimal total_sss = so.sss_employee + so.sss_employer + so.sss_ec;
-                decimal total_ph = so.ph_employee + so.ph_employer;
-                decimal total_pi = so.pi_employee + so.pi_employer;
-                total += total_sss + total_ph + total_pi;
-                dgvSocialObligation.Rows.Add(so.id, employee.GetFullName(), position.name, so.sss_employee, so.sss_employer, so.sss_ec, total_sss, so.ph_employee, so.ph_employer, total_ph, so.pi_employee, so.pi_employer, total_pi);
-            }
-            dgvSocialObligation.Rows.Add(0, "", "", "", "", "", "", "", "", "", "", "", total.ToString("N"));
-            dgvSocialObligation.ClearSelection();
-        }
-
-        private void NewSet()
-        {
-            List<Classes.Employee> employees = Classes.Employee.getAll();
-            foreach (Classes.Employee employee in employees)
-            {
-                Classes.SocialObligation so = new Classes.SocialObligation();
-                so.employee_id = employee.id;
-                so.date = date;
-                so.position = Classes.Position.getById(employee.position_id).name;
-                so.Save();
-            }
+            dgvLoads.Rows.Add("", "Total", 0.00, "", 0.00, 0.00, 0.00);
+            dgvLoads.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dgvLoads.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dgvLoads.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dgvLoads.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dgvLoads.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dgvLoads.ClearSelection();
         }
 
         private void SocialObligation_Load(object sender, EventArgs e)
         {
-            lblSummaryDate.Text = "Social Obligations for " + date.ToString("MMMM") + ", " + date.ToString("yyyy");
             List<Classes.Employee> employees = Classes.Employee.getAll();
 
             Classes.Employee employee = new Classes.Employee();
@@ -95,8 +44,6 @@ namespace TTC_Payroll_System.Forms
             employee = employees.Find(em => em.position_id == 7);
             lblCenterAdministrator.Text = employee.GetFullName();
             
-            sss = Classes.Sss.getAllSortByCredit();
-            philhealths = Classes.PhilHealth.getAllandSort();
             showData();
         }
 
@@ -108,7 +55,7 @@ namespace TTC_Payroll_System.Forms
             btnExportToExcel.Hide();
             pnlPrint2.Show();
 
-            dgvSocialObligation.ClearSelection();
+            dgvLoads.ClearSelection();
             image = new Bitmap(pnlPrint.Width, pnlPrint.Height);
             pnlPrint.DrawToBitmap(image, new Rectangle(0, 0, pnlPrint.Width, pnlPrint.Height));
             printDocument.DefaultPageSettings.Landscape = true;
@@ -135,11 +82,6 @@ namespace TTC_Payroll_System.Forms
             Program.main.Show();
         }
 
-        private void btnClear_Click(object sender, EventArgs e)
-        {
-            dgvSocialObligation.ClearSelection();
-        }
-
         private void btnExportToExcel_Click(object sender, EventArgs e)
         {
             SaveFileDialog sfd = new SaveFileDialog();
@@ -147,8 +89,8 @@ namespace TTC_Payroll_System.Forms
             sfd.FileName = "Export-PayrollSummary.xls";
             if (sfd.ShowDialog() == DialogResult.OK)
             {
-                dgvSocialObligation.SelectAll();
-                DataObject dataObj = dgvSocialObligation.GetClipboardContent();
+                dgvLoads.SelectAll();
+                DataObject dataObj = dgvLoads.GetClipboardContent();
                 if (dataObj != null)
                     Clipboard.SetDataObject(dataObj);
 
@@ -177,7 +119,50 @@ namespace TTC_Payroll_System.Forms
                 if (File.Exists(sfd.FileName))
                     System.Diagnostics.Process.Start(sfd.FileName);
             }
-            dgvSocialObligation.ClearSelection();
+            dgvLoads.ClearSelection();
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            ExcessLoadInput eli = new ExcessLoadInput();
+
+            if (eli.ShowDialog() == DialogResult.OK)
+            {
+                dgvLoads.Rows.Remove(dgvLoads.Rows[dgvLoads.RowCount - 1]);
+                dgvLoads.Rows.Add(eli.employee.GetFullName(), eli.load, eli.hours.ToString("N"), eli.rate.ToString("N"));
+            }
+            compute();
+        }
+        private void compute()
+        {
+            int lastrow = dgvLoads.RowCount - 1;
+            decimal hours = Convert.ToDecimal(dgvLoads.Rows[lastrow].Cells[dgcHours.Name].Value);
+            decimal rate = Convert.ToDecimal(dgvLoads.Rows[lastrow].Cells[dgcRate.Name].Value);
+            decimal total = hours * rate;
+            dgvLoads.Rows[lastrow].Cells[dgcTotal.Name].Value = total.ToString("N");
+            decimal tax = total * 0.10m;
+            dgvLoads.Rows[lastrow].Cells[dgcTax.Name].Value = tax.ToString("N");
+            decimal net = total - tax;
+            dgvLoads.Rows[lastrow].Cells[dgcNet.Name].Value = net.ToString("N");
+
+            decimal total_hours = 0m;
+            decimal total_total = 0m;
+            decimal total_tax = 0m;
+            decimal total_net = 0m;
+            foreach (DataGridViewRow row in dgvLoads.Rows)
+            {
+                total_hours += Convert.ToDecimal(row.Cells[dgcHours.Name].Value);
+                total_total += Convert.ToDecimal(row.Cells[dgcTotal.Name].Value);
+                total_tax += Convert.ToDecimal(row.Cells[dgcTax.Name].Value);
+                total_net += Convert.ToDecimal(row.Cells[dgcNet.Name].Value);
+            }
+            dgvLoads.Rows.Add("", "Total", total_hours.ToString("N"), "", total_total.ToString("N"), total_tax.ToString("N"), total_net.ToString("N"));
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            dgvLoads.Rows.Clear();
+            dgvLoads.Rows.Add("", "Total", 0.00, "", 0.00, 0.00, 0.00);
         }
     }
 }

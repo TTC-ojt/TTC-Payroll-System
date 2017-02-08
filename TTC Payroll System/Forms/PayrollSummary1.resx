@@ -151,6 +151,20 @@
         RK5CYII=
 </value>
   </data>
+  <data name="btnExportToExcel.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAexJREFUWEft
+        lr1Lw1AUxfunOAqSkGQV1FkU6yC4KYKjWJ3UJraLgyDoIuIguri2VMHNVHSzomLFDxBdrA4dKl0cY87z
+        3RjSlyapqS498IO8+673XN9HeYmOOmpF3VmlS1pWRmRdy0i6WpQNtcan4lfPkqLIaWVCMrT1bzPNEsHT
+        fy+7WMo225V19cpr0ozh3Gh/EIP5pMJt/CUqHoahfDIU3MZfouJhEJmJ4Db+EhUPg8hMBLfxl6h4GEgw
+        KVdv+ehHkRvoXemzzPuidf5cslaP1hyjqZ1pFsMccihOiq0BsGVusz+uf9Yds9LLBYthzp1LBkFwG3+5
+        i4JK7Y0ZYhX0XIZ9I+bNu6mWGTApPB06Y3e8pQZm9+eZ6WutYj28P7JvbIM3jwST2LaAoGWHCpcHDfNg
+        8UxnwGTGnHPG7ngsDRzfmQ3zYOE0zaAGaOyOt9QA9h5CE3QesC3ePBJMYtsCnHzcAAj7TocQ58F9BQFM
+        AUxwCGnsjkduAHcdwn9PMVqFtl/Dsc1xZgzwTXEsP8Xb/kMUBdK/NUAGQXAbf4mKh0FkJoLb+EtUPAwi
+        MxHcxl92sZT99tuTDPXaa9IMu/hAEKGeZF7hUSoZyqT9At6wmzoRmQOe/jdiz3JdSdpNZVlTuvbBpzrq
+        KKISiS8CjKPVDSZdzwAAAABJRU5ErkJggg==
+</value>
+  </data>
   <data name="btnPayslip.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1

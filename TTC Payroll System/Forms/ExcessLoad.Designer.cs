@@ -1,6 +1,6 @@
 ﻿namespace TTC_Payroll_System.Forms
 {
-    partial class SocialObligation
+    partial class ExcessLoad
     {
         /// <summary>
         /// Required designer variable.
@@ -28,11 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SocialObligation));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ExcessLoad));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlPrint = new System.Windows.Forms.Panel();
             this.btnExportToExcel = new System.Windows.Forms.Button();
+            this.txtPeriod = new System.Windows.Forms.TextBox();
             this.pnlPrint2 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.lblCenterAdministrator = new System.Windows.Forms.Label();
@@ -40,6 +41,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.lblSummaryDate = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -49,35 +51,36 @@
             this.btnPrint = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
-            this.dgvSocialObligation = new System.Windows.Forms.DataGridView();
-            this.payrollSummaryId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.employeeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.designation = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.employee = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.employer = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ec = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.p_employee = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.p_employer = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.p_total = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pi_employee = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pi_employer = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pi_total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvLoads = new System.Windows.Forms.DataGridView();
             this.printDocument = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog = new System.Windows.Forms.PrintPreviewDialog();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.dgcTrainee = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcLoad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcHours = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcRate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcTax = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcNet = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlPrint.SuspendLayout();
             this.pnlPrint2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSocialObligation)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLoads)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlPrint
             // 
             this.pnlPrint.BackColor = System.Drawing.Color.White;
+            this.pnlPrint.Controls.Add(this.btnExportToExcel);
+            this.pnlPrint.Controls.Add(this.txtPeriod);
+            this.pnlPrint.Controls.Add(this.label7);
             this.pnlPrint.Controls.Add(this.lblSummaryDate);
             this.pnlPrint.Controls.Add(this.pictureBox2);
+            this.pnlPrint.Controls.Add(this.btnAdd);
+            this.pnlPrint.Controls.Add(this.btnClear);
             this.pnlPrint.Controls.Add(this.pictureBox3);
             this.pnlPrint.Controls.Add(this.pictureBox1);
             this.pnlPrint.Controls.Add(this.label3);
@@ -85,8 +88,7 @@
             this.pnlPrint.Controls.Add(this.btnPrint);
             this.pnlPrint.Controls.Add(this.label1);
             this.pnlPrint.Controls.Add(this.btnClose);
-            this.pnlPrint.Controls.Add(this.dgvSocialObligation);
-            this.pnlPrint.Controls.Add(this.btnExportToExcel);
+            this.pnlPrint.Controls.Add(this.dgvLoads);
             this.pnlPrint.Controls.Add(this.pnlPrint2);
             this.pnlPrint.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlPrint.Location = new System.Drawing.Point(5, 5);
@@ -105,11 +107,21 @@
             this.btnExportToExcel.Location = new System.Drawing.Point(822, 485);
             this.btnExportToExcel.Name = "btnExportToExcel";
             this.btnExportToExcel.Size = new System.Drawing.Size(65, 65);
-            this.btnExportToExcel.TabIndex = 11;
+            this.btnExportToExcel.TabIndex = 12;
             this.btnExportToExcel.Text = "Export to Excel";
             this.btnExportToExcel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnExportToExcel.UseVisualStyleBackColor = false;
             this.btnExportToExcel.Click += new System.EventHandler(this.btnExportToExcel_Click);
+            // 
+            // txtPeriod
+            // 
+            this.txtPeriod.BackColor = System.Drawing.Color.White;
+            this.txtPeriod.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPeriod.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
+            this.txtPeriod.Location = new System.Drawing.Point(127, 112);
+            this.txtPeriod.Name = "txtPeriod";
+            this.txtPeriod.Size = new System.Drawing.Size(422, 19);
+            this.txtPeriod.TabIndex = 44;
             // 
             // pnlPrint2
             // 
@@ -120,7 +132,7 @@
             this.pnlPrint2.Controls.Add(this.label6);
             this.pnlPrint2.Controls.Add(this.label4);
             this.pnlPrint2.Controls.Add(this.label8);
-            this.pnlPrint2.Location = new System.Drawing.Point(3, 457);
+            this.pnlPrint2.Location = new System.Drawing.Point(4, 391);
             this.pnlPrint2.Margin = new System.Windows.Forms.Padding(0, 10, 0, 0);
             this.pnlPrint2.Name = "pnlPrint2";
             this.pnlPrint2.Size = new System.Drawing.Size(958, 93);
@@ -199,15 +211,28 @@
             this.label8.TabIndex = 10;
             this.label8.Text = "Admin Officer";
             // 
+            // label7
+            // 
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(3, 112);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(118, 19);
+            this.label7.TabIndex = 43;
+            this.label7.Text = "Period Covered:";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // lblSummaryDate
             // 
             this.lblSummaryDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblSummaryDate.AutoSize = true;
             this.lblSummaryDate.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSummaryDate.Location = new System.Drawing.Point(4, 85);
+            this.lblSummaryDate.Location = new System.Drawing.Point(3, 93);
             this.lblSummaryDate.Name = "lblSummaryDate";
-            this.lblSummaryDate.Size = new System.Drawing.Size(957, 19);
+            this.lblSummaryDate.Size = new System.Drawing.Size(291, 19);
             this.lblSummaryDate.TabIndex = 43;
-            this.lblSummaryDate.Text = "Social Obligations for Date";
+            this.lblSummaryDate.Text = "Payroll Summary of Trainer - Excess Load";
             this.lblSummaryDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBox2
@@ -299,15 +324,15 @@
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // dgvSocialObligation
+            // dgvLoads
             // 
-            this.dgvSocialObligation.AllowUserToAddRows = false;
-            this.dgvSocialObligation.AllowUserToDeleteRows = false;
-            this.dgvSocialObligation.AllowUserToResizeColumns = false;
-            this.dgvSocialObligation.AllowUserToResizeRows = false;
-            this.dgvSocialObligation.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.dgvLoads.AllowUserToAddRows = false;
+            this.dgvLoads.AllowUserToDeleteRows = false;
+            this.dgvLoads.AllowUserToResizeColumns = false;
+            this.dgvLoads.AllowUserToResizeRows = false;
+            this.dgvLoads.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvSocialObligation.BackgroundColor = System.Drawing.Color.White;
+            this.dgvLoads.BackgroundColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightGray;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -315,22 +340,16 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DodgerBlue;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvSocialObligation.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvSocialObligation.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSocialObligation.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.payrollSummaryId,
-            this.employeeName,
-            this.designation,
-            this.employee,
-            this.employer,
-            this.ec,
-            this.total,
-            this.p_employee,
-            this.p_employer,
-            this.p_total,
-            this.pi_employee,
-            this.pi_employer,
-            this.pi_total});
+            this.dgvLoads.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvLoads.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvLoads.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgcTrainee,
+            this.dgcLoad,
+            this.dgcHours,
+            this.dgcRate,
+            this.dgcTotal,
+            this.dgcTax,
+            this.dgcNet});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -338,119 +357,13 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DodgerBlue;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvSocialObligation.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvSocialObligation.EnableHeadersVisualStyles = false;
-            this.dgvSocialObligation.Location = new System.Drawing.Point(3, 115);
-            this.dgvSocialObligation.MultiSelect = false;
-            this.dgvSocialObligation.Name = "dgvSocialObligation";
-            this.dgvSocialObligation.ReadOnly = true;
-            this.dgvSocialObligation.RowHeadersVisible = false;
-            this.dgvSocialObligation.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvSocialObligation.Size = new System.Drawing.Size(959, 338);
-            this.dgvSocialObligation.TabIndex = 2;
-            // 
-            // payrollSummaryId
-            // 
-            this.payrollSummaryId.HeaderText = "ID";
-            this.payrollSummaryId.Name = "payrollSummaryId";
-            this.payrollSummaryId.ReadOnly = true;
-            this.payrollSummaryId.Visible = false;
-            // 
-            // employeeName
-            // 
-            this.employeeName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.employeeName.FillWeight = 12F;
-            this.employeeName.HeaderText = "EMPLOYEE";
-            this.employeeName.Name = "employeeName";
-            this.employeeName.ReadOnly = true;
-            // 
-            // designation
-            // 
-            this.designation.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.designation.FillWeight = 14F;
-            this.designation.HeaderText = "DESIGNATION";
-            this.designation.Name = "designation";
-            this.designation.ReadOnly = true;
-            // 
-            // employee
-            // 
-            this.employee.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.employee.FillWeight = 7F;
-            this.employee.HeaderText = "EMPLOYEE";
-            this.employee.Name = "employee";
-            this.employee.ReadOnly = true;
-            // 
-            // employer
-            // 
-            this.employer.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.employer.FillWeight = 7F;
-            this.employer.HeaderText = "EMPLOYER";
-            this.employer.Name = "employer";
-            this.employer.ReadOnly = true;
-            // 
-            // ec
-            // 
-            this.ec.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ec.FillWeight = 7F;
-            this.ec.HeaderText = "EC";
-            this.ec.Name = "ec";
-            this.ec.ReadOnly = true;
-            // 
-            // total
-            // 
-            this.total.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.total.FillWeight = 7F;
-            this.total.HeaderText = "TOTAL";
-            this.total.Name = "total";
-            this.total.ReadOnly = true;
-            // 
-            // p_employee
-            // 
-            this.p_employee.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.p_employee.FillWeight = 7F;
-            this.p_employee.HeaderText = "EMPLOYEE";
-            this.p_employee.Name = "p_employee";
-            this.p_employee.ReadOnly = true;
-            // 
-            // p_employer
-            // 
-            this.p_employer.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.p_employer.FillWeight = 7F;
-            this.p_employer.HeaderText = "EMPLOYER";
-            this.p_employer.Name = "p_employer";
-            this.p_employer.ReadOnly = true;
-            // 
-            // p_total
-            // 
-            this.p_total.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.p_total.FillWeight = 7F;
-            this.p_total.HeaderText = "TOTAL";
-            this.p_total.Name = "p_total";
-            this.p_total.ReadOnly = true;
-            // 
-            // pi_employee
-            // 
-            this.pi_employee.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.pi_employee.FillWeight = 7F;
-            this.pi_employee.HeaderText = "EMPLOYEE";
-            this.pi_employee.Name = "pi_employee";
-            this.pi_employee.ReadOnly = true;
-            // 
-            // pi_employer
-            // 
-            this.pi_employer.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.pi_employer.FillWeight = 7F;
-            this.pi_employer.HeaderText = "EMPLOYER";
-            this.pi_employer.Name = "pi_employer";
-            this.pi_employer.ReadOnly = true;
-            // 
-            // pi_total
-            // 
-            this.pi_total.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.pi_total.FillWeight = 7F;
-            this.pi_total.HeaderText = "TOTAL";
-            this.pi_total.Name = "pi_total";
-            this.pi_total.ReadOnly = true;
+            this.dgvLoads.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvLoads.Location = new System.Drawing.Point(3, 145);
+            this.dgvLoads.Name = "dgvLoads";
+            this.dgvLoads.RowHeadersVisible = false;
+            this.dgvLoads.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvLoads.Size = new System.Drawing.Size(959, 244);
+            this.dgvLoads.TabIndex = 2;
             // 
             // printDocument
             // 
@@ -467,7 +380,88 @@
             this.printPreviewDialog.Name = "printPreviewDialog";
             this.printPreviewDialog.Visible = false;
             // 
-            // SocialObligation
+            // btnAdd
+            // 
+            this.btnAdd.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnAdd.BackColor = System.Drawing.Color.Silver;
+            this.btnAdd.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.btnAdd.FlatAppearance.BorderSize = 2;
+            this.btnAdd.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.Location = new System.Drawing.Point(892, 395);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(69, 37);
+            this.btnAdd.TabIndex = 12;
+            this.btnAdd.Text = "Add";
+            this.btnAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // btnClear
+            // 
+            this.btnClear.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnClear.BackColor = System.Drawing.Color.Silver;
+            this.btnClear.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.btnClear.FlatAppearance.BorderSize = 2;
+            this.btnClear.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClear.Location = new System.Drawing.Point(7, 395);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(69, 37);
+            this.btnClear.TabIndex = 12;
+            this.btnClear.Text = "Clear";
+            this.btnClear.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnClear.UseVisualStyleBackColor = false;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // dgcTrainee
+            // 
+            this.dgcTrainee.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dgcTrainee.FillWeight = 30F;
+            this.dgcTrainee.HeaderText = "Trainee";
+            this.dgcTrainee.Name = "dgcTrainee";
+            // 
+            // dgcLoad
+            // 
+            this.dgcLoad.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dgcLoad.FillWeight = 25F;
+            this.dgcLoad.HeaderText = "";
+            this.dgcLoad.Name = "dgcLoad";
+            // 
+            // dgcHours
+            // 
+            this.dgcHours.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dgcHours.FillWeight = 10F;
+            this.dgcHours.HeaderText = "Excess Load";
+            this.dgcHours.Name = "dgcHours";
+            // 
+            // dgcRate
+            // 
+            this.dgcRate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dgcRate.FillWeight = 10F;
+            this.dgcRate.HeaderText = "Hourly Rate";
+            this.dgcRate.Name = "dgcRate";
+            // 
+            // dgcTotal
+            // 
+            this.dgcTotal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dgcTotal.FillWeight = 10F;
+            this.dgcTotal.HeaderText = "Total";
+            this.dgcTotal.Name = "dgcTotal";
+            // 
+            // dgcTax
+            // 
+            this.dgcTax.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dgcTax.FillWeight = 10F;
+            this.dgcTax.HeaderText = "Withholding Tax";
+            this.dgcTax.Name = "dgcTax";
+            // 
+            // dgcNet
+            // 
+            this.dgcNet.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dgcNet.FillWeight = 10F;
+            this.dgcNet.HeaderText = "Net Pay";
+            this.dgcNet.Name = "dgcNet";
+            // 
+            // ExcessLoad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -475,7 +469,7 @@
             this.ClientSize = new System.Drawing.Size(975, 561);
             this.Controls.Add(this.pnlPrint);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "SocialObligation";
+            this.Name = "ExcessLoad";
             this.Padding = new System.Windows.Forms.Padding(5);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SocialObligation";
@@ -487,7 +481,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSocialObligation)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLoads)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -495,22 +489,9 @@
         #endregion
 
         private System.Windows.Forms.Panel pnlPrint;
-        private System.Windows.Forms.DataGridView dgvSocialObligation;
+        private System.Windows.Forms.DataGridView dgvLoads;
         private System.Drawing.Printing.PrintDocument printDocument;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog;
-        private System.Windows.Forms.DataGridViewTextBoxColumn payrollSummaryId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn employeeName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn designation;
-        private System.Windows.Forms.DataGridViewTextBoxColumn employee;
-        private System.Windows.Forms.DataGridViewTextBoxColumn employer;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ec;
-        private System.Windows.Forms.DataGridViewTextBoxColumn total;
-        private System.Windows.Forms.DataGridViewTextBoxColumn p_employee;
-        private System.Windows.Forms.DataGridViewTextBoxColumn p_employer;
-        private System.Windows.Forms.DataGridViewTextBoxColumn p_total;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pi_employee;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pi_employer;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pi_total;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label3;
@@ -527,6 +508,17 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtPeriod;
+        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnExportToExcel;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcTrainee;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcLoad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcHours;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcRate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcTotal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcTax;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcNet;
     }
 }

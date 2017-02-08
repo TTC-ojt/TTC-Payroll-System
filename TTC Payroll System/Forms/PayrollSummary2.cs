@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Text;
+using System.IO;
 using System.Windows.Forms;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace TTC_Payroll_System.Forms
 {
@@ -353,6 +351,46 @@ namespace TTC_Payroll_System.Forms
                 ps2.Leave = leaves;
                 ps2.Tax = withtax;
             }
+        }
+
+        private void btnExportToExcel_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = "Excel Documents (*.xls)|*.xls";
+            sfd.FileName = "Export-PayrollSummary.xls";
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                dgvPayroll2.SelectAll();
+                DataObject dataObj = dgvPayroll2.GetClipboardContent();
+                if (dataObj != null)
+                    Clipboard.SetDataObject(dataObj);
+
+                object misValue = System.Reflection.Missing.Value;
+                Excel.Application xlexcel = new Excel.Application();
+
+                xlexcel.DisplayAlerts = false; // Without this you will get two confirm overwrite prompts
+                Excel.Workbook xlWorkBook = xlexcel.Workbooks.Add(misValue);
+                Excel.Worksheet xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
+
+                // Paste clipboard results to worksheet range
+                Excel.Range CR = (Excel.Range)xlWorkSheet.Cells[1, 1];
+                CR.Select();
+                xlWorkSheet.PasteSpecial(CR, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, true);
+
+                // Save the excel file under the captured location from the SaveFileDialog
+                xlWorkBook.SaveAs(sfd.FileName, Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
+                xlexcel.DisplayAlerts = true;
+                xlWorkBook.Close(true, misValue, misValue);
+                xlexcel.Quit();
+
+                // Clear Clipboard and DataGridView selection
+                Clipboard.Clear();
+
+                // Open the newly saved excel file
+                if (File.Exists(sfd.FileName))
+                    System.Diagnostics.Process.Start(sfd.FileName);
+            }
+            dgvPayroll2.ClearSelection();
         }
     }
 }

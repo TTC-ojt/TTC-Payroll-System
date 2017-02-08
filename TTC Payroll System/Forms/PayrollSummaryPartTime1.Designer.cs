@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PayrollSummaryPartTime1));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PayrollSummaryPartTime1));
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnPrint = new System.Windows.Forms.Button();
@@ -43,6 +43,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvPayroll1 = new System.Windows.Forms.DataGridView();
+            this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colEmployeeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPosition = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colMonthlyRate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colHalfMonth = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcWithTax = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcNetPay = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlPrint2 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.lblCenterAdministrator = new System.Windows.Forms.Label();
@@ -52,13 +59,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.printDocument = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog = new System.Windows.Forms.PrintPreviewDialog();
-            this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colEmployeeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPosition = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colMonthlyRate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colHalfMonth = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcWithTax = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgcNetPay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnExportToExcel = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.pnlPrint.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -70,6 +71,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel1.Controls.Add(this.btnExportToExcel);
             this.panel1.Controls.Add(this.btnClose);
             this.panel1.Controls.Add(this.btnPrint);
             this.panel1.Controls.Add(this.btnPayslip);
@@ -252,6 +254,65 @@
             this.dgvPayroll1.TabIndex = 2;
             this.dgvPayroll1.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPayroll1_CellEndEdit);
             // 
+            // colID
+            // 
+            this.colID.HeaderText = "ID";
+            this.colID.Name = "colID";
+            this.colID.Visible = false;
+            // 
+            // colEmployeeName
+            // 
+            this.colEmployeeName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colEmployeeName.FillWeight = 30F;
+            this.colEmployeeName.HeaderText = "EMPLOYEE";
+            this.colEmployeeName.Name = "colEmployeeName";
+            this.colEmployeeName.ReadOnly = true;
+            this.colEmployeeName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // colPosition
+            // 
+            this.colPosition.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colPosition.FillWeight = 25F;
+            this.colPosition.HeaderText = "POSITION";
+            this.colPosition.Name = "colPosition";
+            this.colPosition.ReadOnly = true;
+            this.colPosition.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // colMonthlyRate
+            // 
+            this.colMonthlyRate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colMonthlyRate.FillWeight = 10F;
+            this.colMonthlyRate.HeaderText = "MONTHLY RATE";
+            this.colMonthlyRate.Name = "colMonthlyRate";
+            this.colMonthlyRate.ReadOnly = true;
+            this.colMonthlyRate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // colHalfMonth
+            // 
+            this.colHalfMonth.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colHalfMonth.FillWeight = 10F;
+            this.colHalfMonth.HeaderText = "HALF MONTH";
+            this.colHalfMonth.Name = "colHalfMonth";
+            this.colHalfMonth.ReadOnly = true;
+            this.colHalfMonth.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // dgcWithTax
+            // 
+            this.dgcWithTax.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dgcWithTax.FillWeight = 10F;
+            this.dgcWithTax.HeaderText = "WITHHOLDING TAX";
+            this.dgcWithTax.Name = "dgcWithTax";
+            this.dgcWithTax.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // dgcNetPay
+            // 
+            this.dgcNetPay.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dgcNetPay.FillWeight = 10F;
+            this.dgcNetPay.HeaderText = "NETPAY";
+            this.dgcNetPay.Name = "dgcNetPay";
+            this.dgcNetPay.ReadOnly = true;
+            this.dgcNetPay.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
             // pnlPrint2
             // 
             this.pnlPrint2.Controls.Add(this.label5);
@@ -354,64 +415,22 @@
             this.printPreviewDialog.Name = "printPreviewDialog";
             this.printPreviewDialog.Visible = false;
             // 
-            // colID
+            // btnExportToExcel
             // 
-            this.colID.HeaderText = "ID";
-            this.colID.Name = "colID";
-            this.colID.Visible = false;
-            // 
-            // colEmployeeName
-            // 
-            this.colEmployeeName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colEmployeeName.FillWeight = 30F;
-            this.colEmployeeName.HeaderText = "EMPLOYEE";
-            this.colEmployeeName.Name = "colEmployeeName";
-            this.colEmployeeName.ReadOnly = true;
-            this.colEmployeeName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // colPosition
-            // 
-            this.colPosition.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colPosition.FillWeight = 25F;
-            this.colPosition.HeaderText = "POSITION";
-            this.colPosition.Name = "colPosition";
-            this.colPosition.ReadOnly = true;
-            this.colPosition.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // colMonthlyRate
-            // 
-            this.colMonthlyRate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colMonthlyRate.FillWeight = 10F;
-            this.colMonthlyRate.HeaderText = "MONTHLY RATE";
-            this.colMonthlyRate.Name = "colMonthlyRate";
-            this.colMonthlyRate.ReadOnly = true;
-            this.colMonthlyRate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // colHalfMonth
-            // 
-            this.colHalfMonth.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colHalfMonth.FillWeight = 10F;
-            this.colHalfMonth.HeaderText = "HALF MONTH";
-            this.colHalfMonth.Name = "colHalfMonth";
-            this.colHalfMonth.ReadOnly = true;
-            this.colHalfMonth.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // dgcWithTax
-            // 
-            this.dgcWithTax.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dgcWithTax.FillWeight = 10F;
-            this.dgcWithTax.HeaderText = "WITHHOLDING TAX";
-            this.dgcWithTax.Name = "dgcWithTax";
-            this.dgcWithTax.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // dgcNetPay
-            // 
-            this.dgcNetPay.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dgcNetPay.FillWeight = 10F;
-            this.dgcNetPay.HeaderText = "NETPAY";
-            this.dgcNetPay.Name = "dgcNetPay";
-            this.dgcNetPay.ReadOnly = true;
-            this.dgcNetPay.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.btnExportToExcel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnExportToExcel.BackColor = System.Drawing.Color.Silver;
+            this.btnExportToExcel.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.btnExportToExcel.FlatAppearance.BorderSize = 2;
+            this.btnExportToExcel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExportToExcel.Image = ((System.Drawing.Image)(resources.GetObject("btnExportToExcel.Image")));
+            this.btnExportToExcel.Location = new System.Drawing.Point(793, 583);
+            this.btnExportToExcel.Name = "btnExportToExcel";
+            this.btnExportToExcel.Size = new System.Drawing.Size(65, 65);
+            this.btnExportToExcel.TabIndex = 4;
+            this.btnExportToExcel.Text = "Export to Excel";
+            this.btnExportToExcel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnExportToExcel.UseVisualStyleBackColor = false;
+            this.btnExportToExcel.Click += new System.EventHandler(this.btnExportToExcel_Click);
             // 
             // PayrollSummaryPartTime1
             // 
@@ -468,5 +487,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colHalfMonth;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcWithTax;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcNetPay;
+        private System.Windows.Forms.Button btnExportToExcel;
     }
 }
