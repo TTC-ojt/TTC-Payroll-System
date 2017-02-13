@@ -26,6 +26,16 @@ namespace TTC_Payroll_System.Forms
         private void showData()
         {
             decimal total = 0m;
+            decimal total_sss = 0m;
+            decimal total_sss_ee = 0m;
+            decimal total_sss_er = 0m;
+            decimal total_sss_ec = 0m;
+            decimal total_ph = 0m;
+            decimal total_ph_ee = 0m;
+            decimal total_ph_er = 0m;
+            decimal total_pi = 0m;
+            decimal total_pi_ee = 0m;
+            decimal total_pi_er = 0m;
             sos = Classes.SocialObligation.getByDate(date);
             if (sos.Count == 0)
             {
@@ -37,6 +47,7 @@ namespace TTC_Payroll_System.Forms
             foreach (Classes.SocialObligation so in sos)
             {
                 Classes.Employee employee = Classes.Employee.getById(so.employee_id);
+                if (employee.department_id == 5) continue;
                 Classes.Position position = Classes.Position.getById(employee.position_id);
                 foreach (Classes.Sss ss in sss)
                 {
@@ -59,13 +70,25 @@ namespace TTC_Payroll_System.Forms
                 }
                 so.pi_employee = pagibig;
                 so.pi_employer = pagibig;
-                decimal total_sss = so.sss_employee + so.sss_employer + so.sss_ec;
-                decimal total_ph = so.ph_employee + so.ph_employer;
-                decimal total_pi = so.pi_employee + so.pi_employer;
+
+                total_sss_ee += so.sss_employee;
+                total_sss_er += so.sss_employer;
+                total_sss_ec += so.sss_ec;
+                total_sss = so.sss_employee + so.sss_employer + so.sss_ec;
+
+                total_ph_ee += so.ph_employee;
+                total_ph_er += so.ph_employer;
+                total_ph = so.ph_employee + so.ph_employer;
+
+                total_pi_ee += so.pi_employee;
+                total_pi_er += so.pi_employer;
+                total_pi = so.pi_employee + so.pi_employer;
+
                 total += total_sss + total_ph + total_pi;
                 dgvSocialObligation.Rows.Add(so.id, employee.GetFullName(), position.name, so.sss_employee, so.sss_employer, so.sss_ec, total_sss, so.ph_employee, so.ph_employer, total_ph, so.pi_employee, so.pi_employer, total_pi);
             }
-            dgvSocialObligation.Rows.Add(0, "", "", "", "", "", "", "", "", "", "", "", total.ToString("N"));
+            dgvSocialObligation.Rows.Add(0, "", "", total_sss_ee.ToString("N"), total_sss_er.ToString("N"), total_sss_ec.ToString("N"), (total_sss_ee+total_sss_er+total_sss_ec).ToString("N"), total_ph_ee.ToString("N"), total_ph_er.ToString("N"), (total_ph_ee+total_ph_er).ToString("N"), total_pi_ee.ToString("N"), total_pi_er.ToString("N"), (total_pi_ee + total_pi_er).ToString("N"));
+            dgvSocialObligation.Rows.Add(0, "Grand Total", "", "", "", "", "", "", "", "", "", "", total.ToString("N"));
             dgvSocialObligation.ClearSelection();
         }
 

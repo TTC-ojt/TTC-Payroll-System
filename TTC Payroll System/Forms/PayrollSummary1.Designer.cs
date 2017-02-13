@@ -326,6 +326,7 @@
             this.dgcSssLoan.FillWeight = 7F;
             this.dgcSssLoan.HeaderText = "SSS LOAN";
             this.dgcSssLoan.Name = "dgcSssLoan";
+            this.dgcSssLoan.ReadOnly = true;
             this.dgcSssLoan.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // dgcPagibigRegular
@@ -334,6 +335,7 @@
             this.dgcPagibigRegular.FillWeight = 7F;
             this.dgcPagibigRegular.HeaderText = "REGULAR";
             this.dgcPagibigRegular.Name = "dgcPagibigRegular";
+            this.dgcPagibigRegular.ReadOnly = true;
             this.dgcPagibigRegular.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // dgcPagibigCalamity
@@ -342,6 +344,7 @@
             this.dgcPagibigCalamity.FillWeight = 7F;
             this.dgcPagibigCalamity.HeaderText = "CALAMITY";
             this.dgcPagibigCalamity.Name = "dgcPagibigCalamity";
+            this.dgcPagibigCalamity.ReadOnly = true;
             this.dgcPagibigCalamity.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // dgcLeaves
@@ -350,6 +353,7 @@
             this.dgcLeaves.FillWeight = 7F;
             this.dgcLeaves.HeaderText = "LEAVES W/O PAY";
             this.dgcLeaves.Name = "dgcLeaves";
+            this.dgcLeaves.ReadOnly = true;
             this.dgcLeaves.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // dgcWithTax
@@ -358,6 +362,7 @@
             this.dgcWithTax.FillWeight = 9F;
             this.dgcWithTax.HeaderText = "WITHHOLDING TAX";
             this.dgcWithTax.Name = "dgcWithTax";
+            this.dgcWithTax.ReadOnly = true;
             this.dgcWithTax.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // dgcNetPay
@@ -479,6 +484,7 @@
             this.ClientSize = new System.Drawing.Size(1009, 662);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PayrollSummary1";
             this.Padding = new System.Windows.Forms.Padding(5);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -519,6 +525,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button btnExportToExcel;
         private System.Windows.Forms.DataGridViewTextBoxColumn colID;
         private System.Windows.Forms.DataGridViewTextBoxColumn colEmployeeName;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPosition;
@@ -530,6 +537,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcLeaves;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcWithTax;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcNetPay;
-        private System.Windows.Forms.Button btnExportToExcel;
     }
 }

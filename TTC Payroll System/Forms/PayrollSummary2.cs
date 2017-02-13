@@ -73,6 +73,7 @@ namespace TTC_Payroll_System.Forms
                         break;
                     }
                 }
+                if (employee.id == 1) philhealthRate = 275m;
                 decimal sss_loan = 0m;
                 Classes.Sss_Loan sloan = Classes.Sss_Loan.getLoanByEmployeeId(ps2.EmployeeID);
                 if (sloan.fortnightly) sss_loan = sloan.amount / 2;
@@ -148,6 +149,9 @@ namespace TTC_Payroll_System.Forms
                 ps2.PagIbig = pagibig;
                 ps2.Leave = leave_deduction;
                 ps2.Tax = tax;
+                ps2.SssLoan = sss_loan;
+                ps2.PagibigRegular = pagibig_regular;
+                ps2.PagibigCalamity = pagibig_calamity;
                 ps2.Save();
                 dgvPayroll2.Rows.Add(ps2.ID, employee.GetFullName(), position.name, position.salary.ToString("N"), halfrate.ToString("N"), sssRate.ToString("N"), philhealthRate.ToString("N"), pagibig.ToString("N"), sss_loan.ToString("N"), pagibig_regular.ToString("N"), pagibig_calamity.ToString("N"), leave_deduction.ToString("N"), tax.ToString("N"), netpay.ToString("N"));
                 dgvPayroll2.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
@@ -174,6 +178,7 @@ namespace TTC_Payroll_System.Forms
             List<Classes.Employee> employees = Classes.Employee.getAll();
             foreach (Classes.Employee employee in employees)
             {
+                if (employee.department_id == 4 || employee.department_id == 5) continue;
                 Classes.PayrollSummary2 ps2 = new Classes.PayrollSummary2();
                 ps2.EmployeeID = employee.id;
                 ps2.Date = date;
@@ -197,11 +202,6 @@ namespace TTC_Payroll_System.Forms
             employee = employees.Find(em => em.position_id == 7);
             lblCenterAdministrator.Text = employee.GetFullName();
 
-            ps2s = Classes.PayrollSummary2.getByDate(date);
-            foreach (Classes.PayrollSummary2 ps2 in ps2s)
-            {
-                ps2.Delete();
-            }
             NewSet();
         }
 
@@ -375,7 +375,7 @@ namespace TTC_Payroll_System.Forms
                 // Paste clipboard results to worksheet range
                 Excel.Range CR = (Excel.Range)xlWorkSheet.Cells[1, 1];
                 CR.Select();
-                xlWorkSheet.PasteSpecial(CR, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, true);
+                try { xlWorkSheet.PasteSpecial(CR, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, true); } catch (Exception ex) { ex = null; }
 
                 // Save the excel file under the captured location from the SaveFileDialog
                 xlWorkBook.SaveAs(sfd.FileName, Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);

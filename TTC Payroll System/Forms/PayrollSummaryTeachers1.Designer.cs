@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PayrollSummaryTeachers1));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PayrollSummaryTeachers1));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnExportToExcel = new System.Windows.Forms.Button();
             this.pnlPrint = new System.Windows.Forms.Panel();
             this.lblSummaryDate = new System.Windows.Forms.Label();
             this.pnlPrint2 = new System.Windows.Forms.Panel();
@@ -63,7 +64,6 @@
             this.btnPayslip = new System.Windows.Forms.Button();
             this.printDocument = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog = new System.Windows.Forms.PrintPreviewDialog();
-            this.btnExportToExcel = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.pnlPrint.SuspendLayout();
             this.pnlPrint2.SuspendLayout();
@@ -85,6 +85,23 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(999, 562);
             this.panel1.TabIndex = 1;
+            // 
+            // btnExportToExcel
+            // 
+            this.btnExportToExcel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnExportToExcel.BackColor = System.Drawing.Color.Silver;
+            this.btnExportToExcel.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.btnExportToExcel.FlatAppearance.BorderSize = 2;
+            this.btnExportToExcel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExportToExcel.Image = ((System.Drawing.Image)(resources.GetObject("btnExportToExcel.Image")));
+            this.btnExportToExcel.Location = new System.Drawing.Point(793, 493);
+            this.btnExportToExcel.Name = "btnExportToExcel";
+            this.btnExportToExcel.Size = new System.Drawing.Size(65, 65);
+            this.btnExportToExcel.TabIndex = 4;
+            this.btnExportToExcel.Text = "Export to Excel";
+            this.btnExportToExcel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnExportToExcel.UseVisualStyleBackColor = false;
+            this.btnExportToExcel.Click += new System.EventHandler(this.btnExportToExcel_Click);
             // 
             // pnlPrint
             // 
@@ -286,7 +303,6 @@
             this.dgvPayroll1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvPayroll1.EnableHeadersVisualStyles = false;
             this.dgvPayroll1.Location = new System.Drawing.Point(0, 118);
-            this.dgvPayroll1.MultiSelect = false;
             this.dgvPayroll1.Name = "dgvPayroll1";
             this.dgvPayroll1.RowHeadersVisible = false;
             this.dgvPayroll1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -342,6 +358,7 @@
             this.dgcSssLoan.FillWeight = 7F;
             this.dgcSssLoan.HeaderText = "SSS LOAN";
             this.dgcSssLoan.Name = "dgcSssLoan";
+            this.dgcSssLoan.ReadOnly = true;
             this.dgcSssLoan.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // dgcPagibigRegular
@@ -350,12 +367,14 @@
             this.dgcPagibigRegular.FillWeight = 7F;
             this.dgcPagibigRegular.HeaderText = "REGULAR";
             this.dgcPagibigRegular.Name = "dgcPagibigRegular";
+            this.dgcPagibigRegular.ReadOnly = true;
             this.dgcPagibigRegular.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // dgcPagibigCalamity
             // 
             this.dgcPagibigCalamity.HeaderText = "CALAMITY";
             this.dgcPagibigCalamity.Name = "dgcPagibigCalamity";
+            this.dgcPagibigCalamity.ReadOnly = true;
             this.dgcPagibigCalamity.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // dgcLeaves
@@ -364,6 +383,7 @@
             this.dgcLeaves.FillWeight = 7F;
             this.dgcLeaves.HeaderText = "LEAVES W/O PAY";
             this.dgcLeaves.Name = "dgcLeaves";
+            this.dgcLeaves.ReadOnly = true;
             this.dgcLeaves.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // dgcWithTax
@@ -372,6 +392,7 @@
             this.dgcWithTax.FillWeight = 9F;
             this.dgcWithTax.HeaderText = "WITHHOLDING TAX";
             this.dgcWithTax.Name = "dgcWithTax";
+            this.dgcWithTax.ReadOnly = true;
             this.dgcWithTax.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // dgcNetPay
@@ -445,23 +466,6 @@
             this.printPreviewDialog.Name = "printPreviewDialog";
             this.printPreviewDialog.Visible = false;
             // 
-            // btnExportToExcel
-            // 
-            this.btnExportToExcel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnExportToExcel.BackColor = System.Drawing.Color.Silver;
-            this.btnExportToExcel.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
-            this.btnExportToExcel.FlatAppearance.BorderSize = 2;
-            this.btnExportToExcel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExportToExcel.Image = ((System.Drawing.Image)(resources.GetObject("btnExportToExcel.Image")));
-            this.btnExportToExcel.Location = new System.Drawing.Point(793, 493);
-            this.btnExportToExcel.Name = "btnExportToExcel";
-            this.btnExportToExcel.Size = new System.Drawing.Size(65, 65);
-            this.btnExportToExcel.TabIndex = 4;
-            this.btnExportToExcel.Text = "Export to Excel";
-            this.btnExportToExcel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnExportToExcel.UseVisualStyleBackColor = false;
-            this.btnExportToExcel.Click += new System.EventHandler(this.btnExportToExcel_Click);
-            // 
             // PayrollSummaryTeachers1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -470,6 +474,7 @@
             this.ClientSize = new System.Drawing.Size(1009, 572);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PayrollSummaryTeachers1";
             this.Padding = new System.Windows.Forms.Padding(5);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -510,6 +515,7 @@
         private System.Drawing.Printing.PrintDocument printDocument;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog;
         private System.Windows.Forms.Label lblSummaryDate;
+        private System.Windows.Forms.Button btnExportToExcel;
         private System.Windows.Forms.DataGridViewTextBoxColumn colID;
         private System.Windows.Forms.DataGridViewTextBoxColumn colEmployeeName;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPosition;
@@ -521,6 +527,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcLeaves;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcWithTax;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcNetPay;
-        private System.Windows.Forms.Button btnExportToExcel;
     }
 }

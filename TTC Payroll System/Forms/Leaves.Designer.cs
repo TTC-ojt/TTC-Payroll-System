@@ -29,11 +29,17 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Leaves));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.nudCount = new System.Windows.Forms.NumericUpDown();
             this.btnPrint = new System.Windows.Forms.Button();
             this.dgvLeaves = new System.Windows.Forms.DataGridView();
+            this.loadId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtEmployeeName = new System.Windows.Forms.TextBox();
             this.cbxEmployeeCode = new System.Windows.Forms.ComboBox();
             this.btnClose = new System.Windows.Forms.Button();
@@ -44,19 +50,13 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.printDocument = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog = new System.Windows.Forms.PrintPreviewDialog();
-            this.label5 = new System.Windows.Forms.Label();
-            this.nudCount = new System.Windows.Forms.NumericUpDown();
-            this.loadId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvLeaves)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLeaves)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -83,6 +83,20 @@
             this.panel1.Size = new System.Drawing.Size(660, 491);
             this.panel1.TabIndex = 0;
             // 
+            // nudCount
+            // 
+            this.nudCount.DecimalPlaces = 1;
+            this.nudCount.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F);
+            this.nudCount.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            65536});
+            this.nudCount.Location = new System.Drawing.Point(549, 396);
+            this.nudCount.Name = "nudCount";
+            this.nudCount.Size = new System.Drawing.Size(58, 23);
+            this.nudCount.TabIndex = 28;
+            // 
             // btnPrint
             // 
             this.btnPrint.BackColor = System.Drawing.Color.Silver;
@@ -104,14 +118,14 @@
             this.dgvLeaves.AllowUserToResizeColumns = false;
             this.dgvLeaves.AllowUserToResizeRows = false;
             this.dgvLeaves.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvLeaves.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvLeaves.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvLeaves.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLeaves.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.loadId,
@@ -119,14 +133,14 @@
             this.date,
             this.type,
             this.Column2});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DodgerBlue;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvLeaves.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvLeaves.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgvLeaves.EnableHeadersVisualStyles = false;
             this.dgvLeaves.Location = new System.Drawing.Point(5, 91);
             this.dgvLeaves.Name = "dgvLeaves";
@@ -136,6 +150,45 @@
             this.dgvLeaves.Size = new System.Drawing.Size(650, 298);
             this.dgvLeaves.TabIndex = 2;
             this.dgvLeaves.SelectionChanged += new System.EventHandler(this.dgvLeaves_SelectionChanged);
+            // 
+            // loadId
+            // 
+            this.loadId.HeaderText = "ID";
+            this.loadId.Name = "loadId";
+            this.loadId.ReadOnly = true;
+            this.loadId.Visible = false;
+            // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column1.FillWeight = 75F;
+            this.Column1.HeaderText = "Name";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // date
+            // 
+            this.date.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.date.FillWeight = 20F;
+            this.date.HeaderText = "Date";
+            this.date.Name = "date";
+            this.date.ReadOnly = true;
+            // 
+            // type
+            // 
+            this.type.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.type.FillWeight = 20F;
+            this.type.HeaderText = "Type";
+            this.type.Name = "type";
+            this.type.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column2.FillWeight = 20F;
+            this.Column2.HeaderText = "Count";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
             // 
             // txtEmployeeName
             // 
@@ -196,18 +249,20 @@
             this.dtpLeaveDate.Name = "dtpLeaveDate";
             this.dtpLeaveDate.Size = new System.Drawing.Size(277, 23);
             this.dtpLeaveDate.TabIndex = 2;
+            this.dtpLeaveDate.ValueChanged += new System.EventHandler(this.dtpLeaveDate_ValueChanged);
             // 
             // chkHalfDay
             // 
             this.chkHalfDay.AutoSize = true;
             this.chkHalfDay.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkHalfDay.Location = new System.Drawing.Point(389, 398);
+            this.chkHalfDay.Location = new System.Drawing.Point(392, 398);
             this.chkHalfDay.Name = "chkHalfDay";
             this.chkHalfDay.Size = new System.Drawing.Size(80, 19);
             this.chkHalfDay.TabIndex = 3;
             this.chkHalfDay.Text = "Half Day";
             this.chkHalfDay.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chkHalfDay.UseVisualStyleBackColor = true;
+            this.chkHalfDay.CheckedChanged += new System.EventHandler(this.chkHalfDay_CheckedChanged);
             // 
             // btnSave
             // 
@@ -228,7 +283,7 @@
             this.btnDelete.BackColor = System.Drawing.Color.Silver;
             this.btnDelete.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.Image")));
-            this.btnDelete.Location = new System.Drawing.Point(456, 424);
+            this.btnDelete.Location = new System.Drawing.Point(74, 426);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(65, 65);
             this.btnDelete.TabIndex = 5;
@@ -259,6 +314,17 @@
             this.label3.Text = "Code:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(497, 398);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(46, 16);
+            this.label5.TabIndex = 27;
+            this.label5.Text = "Count:";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -285,70 +351,6 @@
             this.printPreviewDialog.Name = "printPreviewDialog";
             this.printPreviewDialog.Visible = false;
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(497, 398);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(46, 16);
-            this.label5.TabIndex = 27;
-            this.label5.Text = "Count:";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // nudCount
-            // 
-            this.nudCount.DecimalPlaces = 1;
-            this.nudCount.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F);
-            this.nudCount.Increment = new decimal(new int[] {
-            5,
-            0,
-            0,
-            65536});
-            this.nudCount.Location = new System.Drawing.Point(549, 396);
-            this.nudCount.Name = "nudCount";
-            this.nudCount.Size = new System.Drawing.Size(58, 23);
-            this.nudCount.TabIndex = 28;
-            // 
-            // loadId
-            // 
-            this.loadId.HeaderText = "ID";
-            this.loadId.Name = "loadId";
-            this.loadId.ReadOnly = true;
-            this.loadId.Visible = false;
-            // 
-            // Column1
-            // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column1.FillWeight = 75F;
-            this.Column1.HeaderText = "Name";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // date
-            // 
-            this.date.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.date.FillWeight = 20F;
-            this.date.HeaderText = "Date";
-            this.date.Name = "date";
-            this.date.ReadOnly = true;
-            // 
-            // type
-            // 
-            this.type.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.type.FillWeight = 20F;
-            this.type.HeaderText = "Type";
-            this.type.Name = "type";
-            this.type.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column2.FillWeight = 20F;
-            this.Column2.HeaderText = "Count";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
             // Leaves
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -357,6 +359,7 @@
             this.ClientSize = new System.Drawing.Size(670, 501);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Leaves";
             this.Padding = new System.Windows.Forms.Padding(5);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -364,8 +367,8 @@
             this.Load += new System.EventHandler(this.Leaves_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvLeaves)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLeaves)).EndInit();
             this.ResumeLayout(false);
 
         }

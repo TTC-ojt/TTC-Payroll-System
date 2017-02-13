@@ -110,5 +110,25 @@ namespace TTC_Payroll_System.Forms
             e.Graphics.CompositingQuality = CompositingQuality.HighQuality;
             e.Graphics.DrawImage(bmp, 30, 50);
         }
+
+        private void dtpLeaveDate_ValueChanged(object sender, EventArgs e)
+        {
+            if (employee.id >0)
+            {
+                decimal count = 0m;
+                if (chkHalfDay.Checked) count = 0.5m; else count = 1m;
+                nudCount.Value = Classes.Leave.GetCountByEmployeeID(employee.id) + count;
+            }
+        }
+
+        private void chkHalfDay_CheckedChanged(object sender, EventArgs e)
+        {
+            if (employee.id > 0)
+            {
+                decimal count = 0m;
+                if (chkHalfDay.Checked) count = 0.5m; else count = 1m;
+                nudCount.Value = Classes.Leave.GetCountByEmployeeID(employee.id) + count;
+            }
+        }
     }
 }

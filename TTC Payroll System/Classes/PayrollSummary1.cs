@@ -93,27 +93,7 @@ namespace TTC_Payroll_System.Classes
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        public void Delete()
-        {
-            try
-            {
-                using (MySqlConnection con = new MySqlConnection(Connection.Connect()))
-                {
-                    MySqlCommand cmd = new MySqlCommand();
-                    cmd.Connection = con;
-                    cmd.CommandText = "DELETE FROM payroll15 WHERE id = @id";
-                    cmd.Parameters.AddWithValue("id", ID);
-                    con.Open();
-                    cmd.ExecuteNonQuery();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
+                Console.WriteLine(ex.Message);
             }
         }
 

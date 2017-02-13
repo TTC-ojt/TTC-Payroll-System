@@ -1,6 +1,6 @@
 ﻿namespace TTC_Payroll_System.Forms
 {
-    partial class PayrollSummaryPartTime1
+    partial class Archive15
     {
         /// <summary>
         /// Required designer variable.
@@ -28,15 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PayrollSummaryPartTime1));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Archive15));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnExportToExcel = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnPrint = new System.Windows.Forms.Button();
-            this.btnPayslip = new System.Windows.Forms.Button();
             this.pnlPrint = new System.Windows.Forms.Panel();
+            this.lblDate = new System.Windows.Forms.Label();
+            this.cbxYear = new System.Windows.Forms.ComboBox();
+            this.cbxMonth = new System.Windows.Forms.ComboBox();
             this.lblSummaryDate = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -47,57 +48,34 @@
             this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colEmployeeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPosition = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colMonthlyRate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colHalfMonth = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcMonthlyRate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcHalfRate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcSssLoan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcPagibigRegular = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcPagibigCalamity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcLeaves = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcWithTax = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcNetPay = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pnlPrint2 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.lblCenterAdministrator = new System.Windows.Forms.Label();
-            this.lblAccountingAssistant = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.printDocument = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog = new System.Windows.Forms.PrintPreviewDialog();
+            this.printDocument = new System.Drawing.Printing.PrintDocument();
             this.panel1.SuspendLayout();
             this.pnlPrint.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPayroll1)).BeginInit();
-            this.pnlPrint2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel1.Controls.Add(this.btnExportToExcel);
             this.panel1.Controls.Add(this.btnClose);
             this.panel1.Controls.Add(this.btnPrint);
-            this.panel1.Controls.Add(this.btnPayslip);
             this.panel1.Controls.Add(this.pnlPrint);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(5, 5);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(999, 652);
-            this.panel1.TabIndex = 0;
-            // 
-            // btnExportToExcel
-            // 
-            this.btnExportToExcel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnExportToExcel.BackColor = System.Drawing.Color.Silver;
-            this.btnExportToExcel.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
-            this.btnExportToExcel.FlatAppearance.BorderSize = 2;
-            this.btnExportToExcel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExportToExcel.Image = ((System.Drawing.Image)(resources.GetObject("btnExportToExcel.Image")));
-            this.btnExportToExcel.Location = new System.Drawing.Point(793, 583);
-            this.btnExportToExcel.Name = "btnExportToExcel";
-            this.btnExportToExcel.Size = new System.Drawing.Size(65, 65);
-            this.btnExportToExcel.TabIndex = 4;
-            this.btnExportToExcel.Text = "Export to Excel";
-            this.btnExportToExcel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnExportToExcel.UseVisualStyleBackColor = false;
-            this.btnExportToExcel.Click += new System.EventHandler(this.btnExportToExcel_Click);
+            this.panel1.TabIndex = 1;
             // 
             // btnClose
             // 
@@ -132,28 +110,14 @@
             this.btnPrint.UseVisualStyleBackColor = false;
             this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
-            // btnPayslip
-            // 
-            this.btnPayslip.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnPayslip.BackColor = System.Drawing.Color.Silver;
-            this.btnPayslip.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
-            this.btnPayslip.FlatAppearance.BorderSize = 2;
-            this.btnPayslip.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPayslip.Image = ((System.Drawing.Image)(resources.GetObject("btnPayslip.Image")));
-            this.btnPayslip.Location = new System.Drawing.Point(864, 583);
-            this.btnPayslip.Name = "btnPayslip";
-            this.btnPayslip.Size = new System.Drawing.Size(65, 65);
-            this.btnPayslip.TabIndex = 3;
-            this.btnPayslip.Text = "PAYSLIP PRINT";
-            this.btnPayslip.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnPayslip.UseVisualStyleBackColor = false;
-            this.btnPayslip.Click += new System.EventHandler(this.btnPayslip_Click);
-            // 
             // pnlPrint
             // 
             this.pnlPrint.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlPrint.BackColor = System.Drawing.Color.White;
+            this.pnlPrint.Controls.Add(this.lblDate);
+            this.pnlPrint.Controls.Add(this.cbxYear);
+            this.pnlPrint.Controls.Add(this.cbxMonth);
             this.pnlPrint.Controls.Add(this.lblSummaryDate);
             this.pnlPrint.Controls.Add(this.pictureBox2);
             this.pnlPrint.Controls.Add(this.pictureBox1);
@@ -161,21 +125,79 @@
             this.pnlPrint.Controls.Add(this.label2);
             this.pnlPrint.Controls.Add(this.label1);
             this.pnlPrint.Controls.Add(this.dgvPayroll1);
-            this.pnlPrint.Controls.Add(this.pnlPrint2);
             this.pnlPrint.Location = new System.Drawing.Point(3, 3);
             this.pnlPrint.Name = "pnlPrint";
             this.pnlPrint.Size = new System.Drawing.Size(993, 574);
             this.pnlPrint.TabIndex = 32;
             // 
+            // lblDate
+            // 
+            this.lblDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblDate.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDate.Location = new System.Drawing.Point(547, 92);
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(68, 19);
+            this.lblDate.TabIndex = 14;
+            this.lblDate.Text = "1-15";
+            this.lblDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // cbxYear
+            // 
+            this.cbxYear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxYear.FormattingEnabled = true;
+            this.cbxYear.Items.AddRange(new object[] {
+            "2017",
+            "2018",
+            "2019",
+            "2020",
+            "2021",
+            "2022",
+            "2023",
+            "2024",
+            "2025",
+            "2026",
+            "2027",
+            "2028",
+            "2029",
+            "2030"});
+            this.cbxYear.Location = new System.Drawing.Point(617, 90);
+            this.cbxYear.Name = "cbxYear";
+            this.cbxYear.Size = new System.Drawing.Size(101, 21);
+            this.cbxYear.TabIndex = 12;
+            this.cbxYear.SelectedIndexChanged += new System.EventHandler(this.ChangeDate);
+            // 
+            // cbxMonth
+            // 
+            this.cbxMonth.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxMonth.FormattingEnabled = true;
+            this.cbxMonth.Items.AddRange(new object[] {
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December"});
+            this.cbxMonth.Location = new System.Drawing.Point(429, 90);
+            this.cbxMonth.Name = "cbxMonth";
+            this.cbxMonth.Size = new System.Drawing.Size(112, 21);
+            this.cbxMonth.TabIndex = 12;
+            this.cbxMonth.SelectedIndexChanged += new System.EventHandler(this.ChangeDate);
+            // 
             // lblSummaryDate
             // 
             this.lblSummaryDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lblSummaryDate.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSummaryDate.Location = new System.Drawing.Point(0, 86);
+            this.lblSummaryDate.Location = new System.Drawing.Point(275, 90);
             this.lblSummaryDate.Name = "lblSummaryDate";
-            this.lblSummaryDate.Size = new System.Drawing.Size(987, 19);
-            this.lblSummaryDate.TabIndex = 12;
-            this.lblSummaryDate.Text = "Payroll Summary for Date";
+            this.lblSummaryDate.Size = new System.Drawing.Size(148, 19);
+            this.lblSummaryDate.TabIndex = 7;
+            this.lblSummaryDate.Text = "Payroll Summary for ";
             this.lblSummaryDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBox2
@@ -236,39 +258,42 @@
             this.dgvPayroll1.AllowUserToResizeColumns = false;
             this.dgvPayroll1.AllowUserToResizeRows = false;
             this.dgvPayroll1.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DodgerBlue;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPayroll1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPayroll1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvPayroll1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPayroll1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colID,
             this.colEmployeeName,
             this.colPosition,
-            this.colMonthlyRate,
-            this.colHalfMonth,
+            this.dgcMonthlyRate,
+            this.dgcHalfRate,
+            this.dgcSssLoan,
+            this.dgcPagibigRegular,
+            this.dgcPagibigCalamity,
+            this.dgcLeaves,
             this.dgcWithTax,
             this.dgcNetPay});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DodgerBlue;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvPayroll1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvPayroll1.DefaultCellStyle = dataGridViewCellStyle10;
             this.dgvPayroll1.EnableHeadersVisualStyles = false;
             this.dgvPayroll1.Location = new System.Drawing.Point(0, 118);
             this.dgvPayroll1.Name = "dgvPayroll1";
             this.dgvPayroll1.RowHeadersVisible = false;
             this.dgvPayroll1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPayroll1.Size = new System.Drawing.Size(990, 357);
+            this.dgvPayroll1.Size = new System.Drawing.Size(990, 453);
             this.dgvPayroll1.TabIndex = 2;
-            this.dgvPayroll1.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPayroll1_CellEndEdit);
             // 
             // colID
             // 
@@ -279,7 +304,7 @@
             // colEmployeeName
             // 
             this.colEmployeeName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colEmployeeName.FillWeight = 30F;
+            this.colEmployeeName.FillWeight = 27F;
             this.colEmployeeName.HeaderText = "EMPLOYEE";
             this.colEmployeeName.Name = "colEmployeeName";
             this.colEmployeeName.ReadOnly = true;
@@ -288,138 +313,78 @@
             // colPosition
             // 
             this.colPosition.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colPosition.FillWeight = 25F;
+            this.colPosition.FillWeight = 14F;
             this.colPosition.HeaderText = "POSITION";
             this.colPosition.Name = "colPosition";
             this.colPosition.ReadOnly = true;
             this.colPosition.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // colMonthlyRate
+            // dgcMonthlyRate
             // 
-            this.colMonthlyRate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colMonthlyRate.FillWeight = 10F;
-            this.colMonthlyRate.HeaderText = "MONTHLY RATE";
-            this.colMonthlyRate.Name = "colMonthlyRate";
-            this.colMonthlyRate.ReadOnly = true;
-            this.colMonthlyRate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgcMonthlyRate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dgcMonthlyRate.FillWeight = 7F;
+            this.dgcMonthlyRate.HeaderText = "MONTHLY RATE";
+            this.dgcMonthlyRate.Name = "dgcMonthlyRate";
+            this.dgcMonthlyRate.ReadOnly = true;
+            this.dgcMonthlyRate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // colHalfMonth
+            // dgcHalfRate
             // 
-            this.colHalfMonth.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colHalfMonth.FillWeight = 10F;
-            this.colHalfMonth.HeaderText = "HALF MONTH";
-            this.colHalfMonth.Name = "colHalfMonth";
-            this.colHalfMonth.ReadOnly = true;
-            this.colHalfMonth.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgcHalfRate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dgcHalfRate.FillWeight = 7F;
+            this.dgcHalfRate.HeaderText = "HALF MONTH";
+            this.dgcHalfRate.Name = "dgcHalfRate";
+            this.dgcHalfRate.ReadOnly = true;
+            this.dgcHalfRate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // dgcSssLoan
+            // 
+            this.dgcSssLoan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dgcSssLoan.FillWeight = 7F;
+            this.dgcSssLoan.HeaderText = "SSS LOAN";
+            this.dgcSssLoan.Name = "dgcSssLoan";
+            this.dgcSssLoan.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // dgcPagibigRegular
+            // 
+            this.dgcPagibigRegular.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dgcPagibigRegular.FillWeight = 7F;
+            this.dgcPagibigRegular.HeaderText = "REGULAR";
+            this.dgcPagibigRegular.Name = "dgcPagibigRegular";
+            this.dgcPagibigRegular.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // dgcPagibigCalamity
+            // 
+            this.dgcPagibigCalamity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dgcPagibigCalamity.FillWeight = 7F;
+            this.dgcPagibigCalamity.HeaderText = "CALAMITY";
+            this.dgcPagibigCalamity.Name = "dgcPagibigCalamity";
+            this.dgcPagibigCalamity.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // dgcLeaves
+            // 
+            this.dgcLeaves.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dgcLeaves.FillWeight = 7F;
+            this.dgcLeaves.HeaderText = "LEAVES W/O PAY";
+            this.dgcLeaves.Name = "dgcLeaves";
+            this.dgcLeaves.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // dgcWithTax
             // 
             this.dgcWithTax.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dgcWithTax.FillWeight = 10F;
+            this.dgcWithTax.FillWeight = 9F;
             this.dgcWithTax.HeaderText = "WITHHOLDING TAX";
             this.dgcWithTax.Name = "dgcWithTax";
-            this.dgcWithTax.ReadOnly = true;
             this.dgcWithTax.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // dgcNetPay
             // 
             this.dgcNetPay.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dgcNetPay.FillWeight = 10F;
+            this.dgcNetPay.FillWeight = 7F;
             this.dgcNetPay.HeaderText = "NETPAY";
             this.dgcNetPay.Name = "dgcNetPay";
             this.dgcNetPay.ReadOnly = true;
             this.dgcNetPay.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // pnlPrint2
-            // 
-            this.pnlPrint2.Controls.Add(this.label5);
-            this.pnlPrint2.Controls.Add(this.lblCenterAdministrator);
-            this.pnlPrint2.Controls.Add(this.lblAccountingAssistant);
-            this.pnlPrint2.Controls.Add(this.label6);
-            this.pnlPrint2.Controls.Add(this.label4);
-            this.pnlPrint2.Controls.Add(this.label8);
-            this.pnlPrint2.Location = new System.Drawing.Point(3, 478);
-            this.pnlPrint2.Margin = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.pnlPrint2.Name = "pnlPrint2";
-            this.pnlPrint2.Size = new System.Drawing.Size(987, 93);
-            this.pnlPrint2.TabIndex = 11;
-            this.pnlPrint2.Visible = false;
-            // 
-            // label5
-            // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(94, 78);
-            this.label5.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(123, 19);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Accounting Officer";
-            // 
-            // lblCenterAdministrator
-            // 
-            this.lblCenterAdministrator.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblCenterAdministrator.AutoSize = true;
-            this.lblCenterAdministrator.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCenterAdministrator.Location = new System.Drawing.Point(692, 60);
-            this.lblCenterAdministrator.Margin = new System.Windows.Forms.Padding(100, 0, 0, 0);
-            this.lblCenterAdministrator.Name = "lblCenterAdministrator";
-            this.lblCenterAdministrator.Size = new System.Drawing.Size(46, 19);
-            this.lblCenterAdministrator.TabIndex = 9;
-            this.lblCenterAdministrator.Text = "Name";
-            // 
-            // lblAccountingAssistant
-            // 
-            this.lblAccountingAssistant.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblAccountingAssistant.AutoSize = true;
-            this.lblAccountingAssistant.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAccountingAssistant.Location = new System.Drawing.Point(94, 60);
-            this.lblAccountingAssistant.Margin = new System.Windows.Forms.Padding(100, 0, 0, 0);
-            this.lblAccountingAssistant.Name = "lblAccountingAssistant";
-            this.lblAccountingAssistant.Size = new System.Drawing.Size(46, 19);
-            this.lblAccountingAssistant.TabIndex = 9;
-            this.lblAccountingAssistant.Text = "Name";
-            // 
-            // label6
-            // 
-            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(692, 16);
-            this.label6.Margin = new System.Windows.Forms.Padding(75, 0, 0, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(93, 19);
-            this.label6.TabIndex = 8;
-            this.label6.Text = "Approved by:";
-            // 
-            // label4
-            // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(69, 16);
-            this.label4.Margin = new System.Windows.Forms.Padding(75, 0, 0, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(87, 19);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Prepared by:";
-            // 
-            // label8
-            // 
-            this.label8.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(692, 78);
-            this.label8.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(95, 19);
-            this.label8.TabIndex = 10;
-            this.label8.Text = "Admin Officer";
-            // 
-            // printDocument
-            // 
-            this.printDocument.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument_PrintPage);
             // 
             // printPreviewDialog
             // 
@@ -430,9 +395,14 @@
             this.printPreviewDialog.Enabled = true;
             this.printPreviewDialog.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog.Icon")));
             this.printPreviewDialog.Name = "printPreviewDialog";
+            this.printPreviewDialog.UseAntiAlias = true;
             this.printPreviewDialog.Visible = false;
             // 
-            // PayrollSummaryPartTime1
+            // printDocument
+            // 
+            this.printDocument.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument_PrintPage);
+            // 
+            // Archive15
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -441,19 +411,17 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "PayrollSummaryPartTime1";
+            this.Name = "Archive15";
             this.Padding = new System.Windows.Forms.Padding(5);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "PayrollSummary1";
-            this.Load += new System.EventHandler(this.PayrollSummary1_Load);
+            this.Text = "Archive15";
+            this.Load += new System.EventHandler(this.Archive15_Load);
             this.panel1.ResumeLayout(false);
             this.pnlPrint.ResumeLayout(false);
             this.pnlPrint.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPayroll1)).EndInit();
-            this.pnlPrint2.ResumeLayout(false);
-            this.pnlPrint2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -461,33 +429,31 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DataGridView dgvPayroll1;
-        private System.Windows.Forms.Button btnPayslip;
-        private System.Drawing.Printing.PrintDocument printDocument;
-        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog;
-        private System.Windows.Forms.Button btnPrint;
         private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Button btnPrint;
         private System.Windows.Forms.Panel pnlPrint;
+        private System.Windows.Forms.Label lblSummaryDate;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Panel pnlPrint2;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label lblCenterAdministrator;
-        private System.Windows.Forms.Label lblAccountingAssistant;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label lblSummaryDate;
-        private System.Windows.Forms.Button btnExportToExcel;
+        private System.Windows.Forms.DataGridView dgvPayroll1;
         private System.Windows.Forms.DataGridViewTextBoxColumn colID;
         private System.Windows.Forms.DataGridViewTextBoxColumn colEmployeeName;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPosition;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colMonthlyRate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colHalfMonth;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcMonthlyRate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcHalfRate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcSssLoan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcPagibigRegular;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcPagibigCalamity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcLeaves;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcWithTax;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcNetPay;
+        private System.Windows.Forms.ComboBox cbxYear;
+        private System.Windows.Forms.ComboBox cbxMonth;
+        private System.Windows.Forms.Label lblDate;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog;
+        private System.Drawing.Printing.PrintDocument printDocument;
     }
 }

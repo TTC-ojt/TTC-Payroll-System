@@ -32,6 +32,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.chkFortNightly = new System.Windows.Forms.CheckBox();
             this.btnPrint = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
@@ -50,7 +51,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.printDocument = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog = new System.Windows.Forms.PrintPreviewDialog();
-            this.chkFortNightly = new System.Windows.Forms.CheckBox();
             this.loadId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -90,6 +90,17 @@
             this.panel1.Size = new System.Drawing.Size(693, 496);
             this.panel1.TabIndex = 0;
             // 
+            // chkFortNightly
+            // 
+            this.chkFortNightly.AutoSize = true;
+            this.chkFortNightly.Font = new System.Drawing.Font("Tahoma", 9.75F);
+            this.chkFortNightly.Location = new System.Drawing.Point(602, 389);
+            this.chkFortNightly.Name = "chkFortNightly";
+            this.chkFortNightly.Size = new System.Drawing.Size(88, 20);
+            this.chkFortNightly.TabIndex = 31;
+            this.chkFortNightly.Text = "FortNightly";
+            this.chkFortNightly.UseVisualStyleBackColor = true;
+            // 
             // btnPrint
             // 
             this.btnPrint.BackColor = System.Drawing.Color.Silver;
@@ -123,7 +134,7 @@
             this.btnDelete.BackColor = System.Drawing.Color.Silver;
             this.btnDelete.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.Image")));
-            this.btnDelete.Location = new System.Drawing.Point(489, 428);
+            this.btnDelete.Location = new System.Drawing.Point(74, 431);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(65, 65);
             this.btnDelete.TabIndex = 5;
@@ -339,17 +350,6 @@
             this.printPreviewDialog.Name = "printPreviewDialog";
             this.printPreviewDialog.Visible = false;
             // 
-            // chkFortNightly
-            // 
-            this.chkFortNightly.AutoSize = true;
-            this.chkFortNightly.Font = new System.Drawing.Font("Tahoma", 9.75F);
-            this.chkFortNightly.Location = new System.Drawing.Point(602, 389);
-            this.chkFortNightly.Name = "chkFortNightly";
-            this.chkFortNightly.Size = new System.Drawing.Size(88, 20);
-            this.chkFortNightly.TabIndex = 31;
-            this.chkFortNightly.Text = "FortNightly";
-            this.chkFortNightly.UseVisualStyleBackColor = true;
-            // 
             // loadId
             // 
             this.loadId.HeaderText = "ID";
@@ -392,8 +392,8 @@
             // Column3
             // 
             this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column3.FillWeight = 5F;
-            this.Column3.HeaderText = "FORTNIGHTLY";
+            this.Column3.FillWeight = 10F;
+            this.Column3.HeaderText = "FORT NIGHTLY";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
             this.Column3.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -407,6 +407,7 @@
             this.ClientSize = new System.Drawing.Size(703, 506);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SssLoans";
             this.Padding = new System.Windows.Forms.Padding(5);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

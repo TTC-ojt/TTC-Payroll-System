@@ -25,6 +25,7 @@ namespace TTC_Payroll_System.Forms
             List<Classes.Employee> employees = Classes.Employee.getAll();
             foreach (Classes.Employee employee in employees)
             {
+                if (employee.department_id != 5) continue;
                 Classes.PayrollSummary1 ps1 = new Classes.PayrollSummary1();
                 ps1.EmployeeID = employee.id;
                 ps1.Date = date;
@@ -105,11 +106,6 @@ namespace TTC_Payroll_System.Forms
             employee = employees.Find(em => em.position_id == 7);
             lblCenterAdministrator.Text = employee.GetFullName();
 
-            payroll = Classes.PayrollSummary1.getByDate(date);
-            foreach (Classes.PayrollSummary1 ps1 in payroll)
-            {
-                ps1.Delete();
-            }
             NewSet();
         }
 

@@ -34,16 +34,11 @@
             this.pnlPrint = new System.Windows.Forms.Panel();
             this.btnExportToExcel = new System.Windows.Forms.Button();
             this.txtPeriod = new System.Windows.Forms.TextBox();
-            this.pnlPrint2 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.lblCenterAdministrator = new System.Windows.Forms.Label();
-            this.lblAccountingAssistant = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.lblSummaryDate = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnClear = new System.Windows.Forms.Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -52,10 +47,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.dgvLoads = new System.Windows.Forms.DataGridView();
-            this.printDocument = new System.Drawing.Printing.PrintDocument();
-            this.printPreviewDialog = new System.Windows.Forms.PrintPreviewDialog();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.btnClear = new System.Windows.Forms.Button();
             this.dgcTrainee = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcLoad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcHours = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,12 +54,21 @@
             this.dgcTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcTax = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcNet = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pnlPrint2 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.lblCenterAdministrator = new System.Windows.Forms.Label();
+            this.lblAccountingAssistant = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.printDocument = new System.Drawing.Printing.PrintDocument();
+            this.printPreviewDialog = new System.Windows.Forms.PrintPreviewDialog();
             this.pnlPrint.SuspendLayout();
-            this.pnlPrint2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLoads)).BeginInit();
+            this.pnlPrint2.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlPrint
@@ -123,94 +123,6 @@
             this.txtPeriod.Size = new System.Drawing.Size(422, 19);
             this.txtPeriod.TabIndex = 44;
             // 
-            // pnlPrint2
-            // 
-            this.pnlPrint2.BackColor = System.Drawing.Color.White;
-            this.pnlPrint2.Controls.Add(this.label5);
-            this.pnlPrint2.Controls.Add(this.lblCenterAdministrator);
-            this.pnlPrint2.Controls.Add(this.lblAccountingAssistant);
-            this.pnlPrint2.Controls.Add(this.label6);
-            this.pnlPrint2.Controls.Add(this.label4);
-            this.pnlPrint2.Controls.Add(this.label8);
-            this.pnlPrint2.Location = new System.Drawing.Point(4, 391);
-            this.pnlPrint2.Margin = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.pnlPrint2.Name = "pnlPrint2";
-            this.pnlPrint2.Size = new System.Drawing.Size(958, 93);
-            this.pnlPrint2.TabIndex = 12;
-            this.pnlPrint2.Visible = false;
-            // 
-            // label5
-            // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(80, 78);
-            this.label5.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(123, 19);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Accounting Officer";
-            // 
-            // lblCenterAdministrator
-            // 
-            this.lblCenterAdministrator.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblCenterAdministrator.AutoSize = true;
-            this.lblCenterAdministrator.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCenterAdministrator.Location = new System.Drawing.Point(678, 60);
-            this.lblCenterAdministrator.Margin = new System.Windows.Forms.Padding(100, 0, 0, 0);
-            this.lblCenterAdministrator.Name = "lblCenterAdministrator";
-            this.lblCenterAdministrator.Size = new System.Drawing.Size(46, 19);
-            this.lblCenterAdministrator.TabIndex = 9;
-            this.lblCenterAdministrator.Text = "Name";
-            // 
-            // lblAccountingAssistant
-            // 
-            this.lblAccountingAssistant.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblAccountingAssistant.AutoSize = true;
-            this.lblAccountingAssistant.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAccountingAssistant.Location = new System.Drawing.Point(80, 60);
-            this.lblAccountingAssistant.Margin = new System.Windows.Forms.Padding(100, 0, 0, 0);
-            this.lblAccountingAssistant.Name = "lblAccountingAssistant";
-            this.lblAccountingAssistant.Size = new System.Drawing.Size(46, 19);
-            this.lblAccountingAssistant.TabIndex = 9;
-            this.lblAccountingAssistant.Text = "Name";
-            // 
-            // label6
-            // 
-            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(692, 16);
-            this.label6.Margin = new System.Windows.Forms.Padding(75, 0, 0, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(93, 19);
-            this.label6.TabIndex = 8;
-            this.label6.Text = "Approved by:";
-            // 
-            // label4
-            // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(69, 16);
-            this.label4.Margin = new System.Windows.Forms.Padding(75, 0, 0, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(87, 19);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Prepared by:";
-            // 
-            // label8
-            // 
-            this.label8.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(678, 78);
-            this.label8.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(95, 19);
-            this.label8.TabIndex = 10;
-            this.label8.Text = "Admin Officer";
-            // 
             // label7
             // 
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -243,6 +155,38 @@
             this.pictureBox2.Size = new System.Drawing.Size(66, 65);
             this.pictureBox2.TabIndex = 42;
             this.pictureBox2.TabStop = false;
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnAdd.BackColor = System.Drawing.Color.Silver;
+            this.btnAdd.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.btnAdd.FlatAppearance.BorderSize = 2;
+            this.btnAdd.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.Location = new System.Drawing.Point(892, 395);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(69, 37);
+            this.btnAdd.TabIndex = 12;
+            this.btnAdd.Text = "Add";
+            this.btnAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // btnClear
+            // 
+            this.btnClear.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnClear.BackColor = System.Drawing.Color.Silver;
+            this.btnClear.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.btnClear.FlatAppearance.BorderSize = 2;
+            this.btnClear.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClear.Location = new System.Drawing.Point(7, 395);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(69, 37);
+            this.btnClear.TabIndex = 12;
+            this.btnClear.Text = "Clear";
+            this.btnClear.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnClear.UseVisualStyleBackColor = false;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // pictureBox3
             // 
@@ -365,53 +309,6 @@
             this.dgvLoads.Size = new System.Drawing.Size(959, 244);
             this.dgvLoads.TabIndex = 2;
             // 
-            // printDocument
-            // 
-            this.printDocument.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument_PrintPage);
-            // 
-            // printPreviewDialog
-            // 
-            this.printPreviewDialog.AutoScrollMargin = new System.Drawing.Size(0, 0);
-            this.printPreviewDialog.AutoScrollMinSize = new System.Drawing.Size(0, 0);
-            this.printPreviewDialog.ClientSize = new System.Drawing.Size(400, 300);
-            this.printPreviewDialog.Document = this.printDocument;
-            this.printPreviewDialog.Enabled = true;
-            this.printPreviewDialog.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog.Icon")));
-            this.printPreviewDialog.Name = "printPreviewDialog";
-            this.printPreviewDialog.Visible = false;
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnAdd.BackColor = System.Drawing.Color.Silver;
-            this.btnAdd.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
-            this.btnAdd.FlatAppearance.BorderSize = 2;
-            this.btnAdd.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Location = new System.Drawing.Point(892, 395);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(69, 37);
-            this.btnAdd.TabIndex = 12;
-            this.btnAdd.Text = "Add";
-            this.btnAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnAdd.UseVisualStyleBackColor = false;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // btnClear
-            // 
-            this.btnClear.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnClear.BackColor = System.Drawing.Color.Silver;
-            this.btnClear.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
-            this.btnClear.FlatAppearance.BorderSize = 2;
-            this.btnClear.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.Location = new System.Drawing.Point(7, 395);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(69, 37);
-            this.btnClear.TabIndex = 12;
-            this.btnClear.Text = "Clear";
-            this.btnClear.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnClear.UseVisualStyleBackColor = false;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
-            // 
             // dgcTrainee
             // 
             this.dgcTrainee.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -461,6 +358,109 @@
             this.dgcNet.HeaderText = "Net Pay";
             this.dgcNet.Name = "dgcNet";
             // 
+            // pnlPrint2
+            // 
+            this.pnlPrint2.BackColor = System.Drawing.Color.White;
+            this.pnlPrint2.Controls.Add(this.label5);
+            this.pnlPrint2.Controls.Add(this.lblCenterAdministrator);
+            this.pnlPrint2.Controls.Add(this.lblAccountingAssistant);
+            this.pnlPrint2.Controls.Add(this.label6);
+            this.pnlPrint2.Controls.Add(this.label4);
+            this.pnlPrint2.Controls.Add(this.label8);
+            this.pnlPrint2.Location = new System.Drawing.Point(4, 391);
+            this.pnlPrint2.Margin = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.pnlPrint2.Name = "pnlPrint2";
+            this.pnlPrint2.Size = new System.Drawing.Size(958, 93);
+            this.pnlPrint2.TabIndex = 12;
+            this.pnlPrint2.Visible = false;
+            // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(80, 78);
+            this.label5.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(123, 19);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Accounting Officer";
+            // 
+            // lblCenterAdministrator
+            // 
+            this.lblCenterAdministrator.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblCenterAdministrator.AutoSize = true;
+            this.lblCenterAdministrator.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCenterAdministrator.Location = new System.Drawing.Point(678, 60);
+            this.lblCenterAdministrator.Margin = new System.Windows.Forms.Padding(100, 0, 0, 0);
+            this.lblCenterAdministrator.Name = "lblCenterAdministrator";
+            this.lblCenterAdministrator.Size = new System.Drawing.Size(46, 19);
+            this.lblCenterAdministrator.TabIndex = 9;
+            this.lblCenterAdministrator.Text = "Name";
+            // 
+            // lblAccountingAssistant
+            // 
+            this.lblAccountingAssistant.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblAccountingAssistant.AutoSize = true;
+            this.lblAccountingAssistant.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAccountingAssistant.Location = new System.Drawing.Point(80, 60);
+            this.lblAccountingAssistant.Margin = new System.Windows.Forms.Padding(100, 0, 0, 0);
+            this.lblAccountingAssistant.Name = "lblAccountingAssistant";
+            this.lblAccountingAssistant.Size = new System.Drawing.Size(46, 19);
+            this.lblAccountingAssistant.TabIndex = 9;
+            this.lblAccountingAssistant.Text = "Name";
+            // 
+            // label6
+            // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(692, 16);
+            this.label6.Margin = new System.Windows.Forms.Padding(75, 0, 0, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(93, 19);
+            this.label6.TabIndex = 8;
+            this.label6.Text = "Approved by:";
+            // 
+            // label4
+            // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(69, 16);
+            this.label4.Margin = new System.Windows.Forms.Padding(75, 0, 0, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(87, 19);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Prepared by:";
+            // 
+            // label8
+            // 
+            this.label8.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(678, 78);
+            this.label8.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(95, 19);
+            this.label8.TabIndex = 10;
+            this.label8.Text = "Admin Officer";
+            // 
+            // printDocument
+            // 
+            this.printDocument.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument_PrintPage);
+            // 
+            // printPreviewDialog
+            // 
+            this.printPreviewDialog.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog.Document = this.printDocument;
+            this.printPreviewDialog.Enabled = true;
+            this.printPreviewDialog.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog.Icon")));
+            this.printPreviewDialog.Name = "printPreviewDialog";
+            this.printPreviewDialog.Visible = false;
+            // 
             // ExcessLoad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -469,6 +469,7 @@
             this.ClientSize = new System.Drawing.Size(975, 561);
             this.Controls.Add(this.pnlPrint);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ExcessLoad";
             this.Padding = new System.Windows.Forms.Padding(5);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -476,12 +477,12 @@
             this.Load += new System.EventHandler(this.SocialObligation_Load);
             this.pnlPrint.ResumeLayout(false);
             this.pnlPrint.PerformLayout();
-            this.pnlPrint2.ResumeLayout(false);
-            this.pnlPrint2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLoads)).EndInit();
+            this.pnlPrint2.ResumeLayout(false);
+            this.pnlPrint2.PerformLayout();
             this.ResumeLayout(false);
 
         }

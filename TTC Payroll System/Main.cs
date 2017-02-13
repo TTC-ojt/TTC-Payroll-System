@@ -171,5 +171,19 @@ namespace TTC_Payroll_System
             el.Show();
             Hide();
         }
+
+        private void btnArchive1_Click(object sender, EventArgs e)
+        {
+            Forms.Archive15 a1 = new Forms.Archive15();
+            a1.Show();
+            Hide();
+        }
+
+        private void btnArchive2_Click(object sender, EventArgs e)
+        {
+            Forms.Archive30 a2 = new Forms.Archive30();
+            a2.Show();
+            Hide();
+        }
     }
 }

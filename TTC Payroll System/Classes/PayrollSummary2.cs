@@ -19,6 +19,9 @@ namespace TTC_Payroll_System.Classes
         public decimal UTD { get; set; }
         public decimal Leave { get; set; }
         public decimal Tax { get; set; }
+        public decimal SssLoan { get; set; }
+        public decimal PagibigRegular { get; set; }
+        public decimal PagibigCalamity { get; set; }
 
         public static List<PayrollSummary2> getByDate(DateTime date)
         {
@@ -48,6 +51,9 @@ namespace TTC_Payroll_System.Classes
                             ps2.UTD = rdr.GetDecimal(7);
                             ps2.Leave = rdr.GetDecimal(8);
                             ps2.Tax = rdr.GetDecimal(9);
+                            ps2.SssLoan = rdr.GetDecimal(10);
+                            ps2.PagibigRegular = rdr.GetDecimal(11);
+                            ps2.PagibigCalamity = rdr.GetDecimal(12);
                             ps2s.Add(ps2);
                         }
                     }
@@ -76,7 +82,7 @@ namespace TTC_Payroll_System.Classes
                     }
                     else
                     {
-                        cmd.CommandText = "INSERT INTO payroll30 (employee_id, `date`, monthly_rate, sss, philhealth, pagibig, utd, `leave`, tax) VALUES (@employee_id, @date, @monthly_rate, @sss, @philhealth, @pagibig, @utd, @leave, @tax)";
+                        cmd.CommandText = "INSERT INTO payroll30 (employee_id, `date`, monthly_rate, sss, philhealth, pagibig, utd, `leave`, tax, sss_loan, pagibig_regular, pagibig_calamity) VALUES (@employee_id, @date, @monthly_rate, @sss, @philhealth, @pagibig, @utd, @leave, @tax, @sss_loan, @pagibig_regular, @pagibig_calamity)";
                         cmd.Parameters.AddWithValue("employee_id", EmployeeID);
                         cmd.Parameters.AddWithValue("date", Date);
                     }
@@ -87,34 +93,18 @@ namespace TTC_Payroll_System.Classes
                     cmd.Parameters.AddWithValue("utd", UTD);
                     cmd.Parameters.AddWithValue("leave", Leave);
                     cmd.Parameters.AddWithValue("tax", Tax);
+                    cmd.Parameters.AddWithValue("sss_loan", SssLoan);
+                    cmd.Parameters.AddWithValue("pagibig_regular", PagibigRegular);
+                    cmd.Parameters.AddWithValue("pagibig_calamity", PagibigCalamity);
                     con.Open();
                     cmd.ExecuteNonQuery();
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                Console.WriteLine(ex.Message);
             }
         }
 
-        public void Delete()
-        {
-            try
-            {
-                using (MySqlConnection con = new MySqlConnection(Connection.Connect()))
-                {
-                    MySqlCommand cmd = new MySqlCommand();
-                    cmd.Connection = con;
-                    cmd.CommandText = "DELETE FROM payroll30 WHERE id = @id";
-                    cmd.Parameters.AddWithValue("id", ID);
-                    con.Open();
-                    cmd.ExecuteNonQuery();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
     }
 }

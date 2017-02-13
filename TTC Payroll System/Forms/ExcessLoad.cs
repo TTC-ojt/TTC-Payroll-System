@@ -130,8 +130,8 @@ namespace TTC_Payroll_System.Forms
             {
                 dgvLoads.Rows.Remove(dgvLoads.Rows[dgvLoads.RowCount - 1]);
                 dgvLoads.Rows.Add(eli.employee.GetFullName(), eli.load, eli.hours.ToString("N"), eli.rate.ToString("N"));
+                compute();
             }
-            compute();
         }
         private void compute()
         {

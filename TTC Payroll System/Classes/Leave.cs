@@ -49,6 +49,34 @@ namespace TTC_Payroll_System.Classes
             return leaves;
         }
 
+        public static decimal GetCountByEmployeeID(int EmployeeID)
+        {
+            decimal Count = 0m;
+            try
+            {
+                using (MySqlConnection con = new MySqlConnection(Connection.Connect()))
+                {
+                    MySqlCommand cmd = new MySqlCommand();
+                    cmd.Connection = con;
+                    cmd.CommandText = "SELECT SUM(count) FROM leaves WHERE employee_id = @employee_id";
+                    cmd.Parameters.AddWithValue("employee_id", EmployeeID);
+                    con.Open();
+                    using (MySqlDataReader rdr = cmd.ExecuteReader())
+                    {
+                        while (rdr.Read())
+                        {
+                            Count = rdr.GetDecimal(0);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return Count;
+        }
+
         public static List<Leave> getLeavesByEmployeeID(int EmployeeID)
         {
             List<Leave> leaves = new List<Leave>();
